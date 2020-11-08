@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shader Graphs_AsteroidShader
-  m_Shader: {fileID: -6465566751694194690, guid: 4811e45e5fb1646e2b4b9bc5db1329f3, type: 3}
+  m_Name: Shader Graphs_Moon Smaller NoiseTemporaryShader
+  m_Shader: {fileID: -6465566751694194690, guid: 809ce8e5d818244558710cbb1bc7d330, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -20,9 +20,8 @@ Material:
     serializedVersion: 3
     m_TexEnvs: []
     m_Floats:
-    - Vector1_3091F9EC: 0.2
+    - Vector1_6D431E78: 0.01
     m_Colors:
-    - Color_246C7C0D: {r: 1, g: 0.24595529, b: 0, a: 1}
-    - Color_E4E1786F: {r: 0.7735849, g: 0.31445667, b: 0.15690637, a: 1}
-    - Color_FE4D4CD5: {r: 0.8867924, g: 0.046012796, b: 0.12842247, a: 1}
+    - Color_F62C93B6: {r: 0.40775186, g: 0.44021478, b: 0.46226412, a: 1}
+    - Vector2_55B09353: {r: 60, g: 300, b: 0, a: 0}
   m_BuildTextureStacks: []

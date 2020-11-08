@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shader Graphs_AsteroidShader
-  m_Shader: {fileID: -6465566751694194690, guid: 4811e45e5fb1646e2b4b9bc5db1329f3, type: 3}
+  m_Name: Shader Graphs_MineStoneShader
+  m_Shader: {fileID: -6465566751694194690, guid: 8c301f3d6d09d4f8789b2f2b5ce41ac9, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -20,9 +20,12 @@ Material:
     serializedVersion: 3
     m_TexEnvs: []
     m_Floats:
-    - Vector1_3091F9EC: 0.2
+    - Vector1_2A25A791: 1.8
+    - Vector1_343CC19E: 17.8
+    - Vector1_60777A32: 0
+    - Vector1_FF43D65B: 0.02
     m_Colors:
-    - Color_246C7C0D: {r: 1, g: 0.24595529, b: 0, a: 1}
-    - Color_E4E1786F: {r: 0.7735849, g: 0.31445667, b: 0.15690637, a: 1}
-    - Color_FE4D4CD5: {r: 0.8867924, g: 0.046012796, b: 0.12842247, a: 1}
+    - Color_3A3709E1: {r: 0.21383058, g: 0.8962264, b: 0.13105197, a: 1}
+    - Color_581CB254: {r: 0.8113207, g: 0.26809403, b: 0.10332855, a: 1}
+    - Color_ED55362F: {r: 1, g: 0.56797737, b: 0.17452827, a: 1}
   m_BuildTextureStacks: []

@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(Collider))]
 public class AsteroidSpawner : MonoBehaviour
@@ -15,6 +17,8 @@ public class AsteroidSpawner : MonoBehaviour
     public float timer = 0.5f;
 
     private IEnumerator spawner;
+
+    public bool debugUpdatePosition = false;
     
     void Awake()
     {
@@ -27,6 +31,16 @@ public class AsteroidSpawner : MonoBehaviour
     {
         spawner = SpawnAsteroids();
         StartCoroutine(spawner);
+    }
+
+    private void Update()
+    {
+        if (debugUpdatePosition)
+        {
+            var bounds = spawnerCollider.bounds;
+            minBounds = bounds.min;
+            maxBounds = bounds.max;
+        }
     }
 
     private IEnumerator SpawnAsteroids()
