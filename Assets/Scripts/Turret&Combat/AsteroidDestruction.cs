@@ -16,6 +16,7 @@ public class AsteroidDestruction : MonoBehaviour
    {
       if (collidingGameObject.CompareTag("Bullet"))
       {
+         GameLogic.Instance.AsteroidDestroyed();
          Destroy(gameObject, 0.1f);
          Destroy(collidingGameObject, 0.1f);
       }

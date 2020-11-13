@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(Collider))]
 public class AsteroidSpawner : MonoBehaviour
@@ -31,6 +29,15 @@ public class AsteroidSpawner : MonoBehaviour
     {
         spawner = SpawnAsteroids();
         StartCoroutine(spawner);
+    }
+
+    public void ToggleSpawner(bool toggle)
+    {
+        StopCoroutine(spawner);
+        if (toggle)
+        {
+            StartCoroutine(spawner);
+        }
     }
 
     private void Update()
