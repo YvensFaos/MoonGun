@@ -16,7 +16,7 @@ public class ResourcePanel : MonoBehaviour
 
     [SerializeField] private float updateTextTime = 0.7f; 
     
-    private readonly Vector3 _scaleFactor = new Vector3(2.08f, 1.05f, 1.05f);
+    private readonly Vector3 _scaleFactor = new Vector3(1.48f, 1.25f, 1.0f);
     private readonly Vector3 _regularFactor = new Vector3(1.0f, 1.0f, 1.0f);
     public void UpdateAsteroidText(int asteroidsCount)
     {
