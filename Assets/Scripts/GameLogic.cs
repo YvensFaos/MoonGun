@@ -33,6 +33,12 @@ public class GameLogic : MonoBehaviour
         }
     }
 
+    public bool ClickEnable
+    {
+        get => _clickEnable;
+        set => _clickEnable = value;
+    }
+
     private void Awake()
     {
         if (Instance != null)
@@ -47,6 +53,7 @@ public class GameLogic : MonoBehaviour
     {
         IncrementAsteroids(0);
         IncrementMinerals(0);
+        _clickEnable = true;
     }
     
     [Header("Game Properties")]
@@ -63,6 +70,8 @@ public class GameLogic : MonoBehaviour
     [SerializeField] private Hangar hangar;
     //Add Labs
 
+    private bool _clickEnable;
+    
     public void ToggleAsteroidSpawner(bool toggle)
     {
         asteroidSpawner.ToggleSpawner(toggle);

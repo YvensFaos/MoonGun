@@ -38,9 +38,7 @@ public class RaycastActivate : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast (ray, out hit, 100.0f)) 
         {
-            Debug.DrawLine (ray.origin, hit.point);
-
-            if (hit.collider.Equals(_collider))
+            if (hit.collider.Equals(_collider) && GameLogic.Instance.ClickEnable)
             {
                 _justHovered = true;
                 activateObject.SetActive(true);

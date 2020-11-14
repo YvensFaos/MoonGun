@@ -36,7 +36,7 @@ public class UpgradeButton : MonoBehaviour
                break;
             case FacilityType.MINES:
             {
-               
+               GameLogic.Instance.MineControl.UnlockUpgrade(_upgradeInfo);
             }
                break;
             case FacilityType.HANGAR:
