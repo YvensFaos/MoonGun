@@ -14,21 +14,19 @@ public class ResourcePanel : MonoBehaviour
     [SerializeField]
     private Text mineralText;
 
-    [SerializeField] private float updateTextTime = 0.2f; 
+    [SerializeField] private float updateTextTime = 0.7f; 
     
-    private Vector3 scaleFactor = new Vector3(1.08f, 1.05f, 1.05f);
-    private Vector3 regularFactor = new Vector3(1.0f, 1.0f, 1.0f);
+    private readonly Vector3 _scaleFactor = new Vector3(2.08f, 1.05f, 1.05f);
+    private readonly Vector3 _regularFactor = new Vector3(1.0f, 1.0f, 1.0f);
     public void UpdateAsteroidText(int asteroidsCount)
     {
-        asteroidImage.DOScale(scaleFactor, updateTextTime);
+        asteroidImage.DOScale(_scaleFactor, updateTextTime).OnComplete(()=>{asteroidImage.DOScale(_regularFactor, updateTextTime);});
         asteroidText.DOText(asteroidsCount.ToString(), updateTextTime, true, ScrambleMode.Numerals);
-        asteroidImage.DOScale(regularFactor, updateTextTime);
     }
 
     public void UpdateMineralText(int mineralCount)
     {
-        mineralImage.DOScale(scaleFactor, updateTextTime);
+        mineralImage.DOScale(_scaleFactor, updateTextTime).OnComplete(()=>{mineralImage.DOScale(_regularFactor, updateTextTime);});
         mineralText.DOText(mineralCount.ToString(), updateTextTime, true, ScrambleMode.Numerals);
-        mineralImage.DOScale(regularFactor, updateTextTime);
     }
 }

@@ -26,13 +26,14 @@ public class GameLogic : MonoBehaviour
     [Header("Game Properties")]
     [SerializeField] private int asteroidsCollected = 0;
     [SerializeField] private int mineralsCollected = 0;
-    
+
     [Space(5)]
     
     [Header("Game Behaviours")]
     [SerializeField] private ResourcePanel resourcePanel;
     [SerializeField] private AsteroidSpawner asteroidSpawner;
     [SerializeField] private TurretControl turretControl;
+    [SerializeField] private MineHarvest mineHarvest;
 
     public void ToggleAsteroidSpawner(bool toggle)
     {

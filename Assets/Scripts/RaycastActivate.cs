@@ -13,8 +13,8 @@ public class RaycastActivate : MonoBehaviour
     [SerializeField] private UnityEvent eventsWhenNotHovering;
 
     private Collider _collider;
-    private bool justHovered;
-    private bool readyToHover;
+    private bool _justHovered;
+    private bool _readyToHover;
 
     private void Awake()
     {
@@ -23,8 +23,8 @@ public class RaycastActivate : MonoBehaviour
 
     private void Start()
     {
-        justHovered = false;
-        readyToHover = false;
+        _justHovered = false;
+        _readyToHover = false;
         
         activateObject.SetActive(false);
     }
@@ -39,12 +39,12 @@ public class RaycastActivate : MonoBehaviour
 
             if (hit.collider.Equals(_collider))
             {
-                justHovered = true;
+                _justHovered = true;
                 activateObject.SetActive(true);
-                if (!readyToHover)
+                if (!_readyToHover)
                 {
                     eventsWhenHovering.Invoke();
-                    readyToHover = true;
+                    _readyToHover = true;
                 }
             }
             else
@@ -60,10 +60,10 @@ public class RaycastActivate : MonoBehaviour
 
     private void UndoHovering()
     {
-        if (justHovered)
+        if (_justHovered)
         {
-            justHovered = false;
-            readyToHover = false;
+            _justHovered = false;
+            _readyToHover = false;
             eventsWhenNotHovering.Invoke();
             activateObject.SetActive(false);
         }
