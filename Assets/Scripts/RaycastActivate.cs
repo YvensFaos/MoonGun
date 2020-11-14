@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UIElements;
 
 [RequireComponent(typeof(Collider))]
 public class RaycastActivate : MonoBehaviour
@@ -12,6 +13,8 @@ public class RaycastActivate : MonoBehaviour
     
     [SerializeField] private UnityEvent eventsWhenNotHovering;
 
+    [SerializeField] private UnityEvent onClick;
+    
     private Collider _collider;
     private bool _justHovered;
     private bool _readyToHover;
@@ -45,6 +48,11 @@ public class RaycastActivate : MonoBehaviour
                 {
                     eventsWhenHovering.Invoke();
                     _readyToHover = true;
+                }
+
+                if (Input.GetMouseButtonDown(0))
+                {
+                    onClick.Invoke();
                 }
             }
             else

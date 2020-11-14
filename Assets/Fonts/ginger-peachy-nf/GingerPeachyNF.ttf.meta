@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: df4dd33459a2441b682f8ec9da1cbcd3
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Ginger Peachy NF
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 0b6eaa69a66e344279cbeefeb09e0825, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

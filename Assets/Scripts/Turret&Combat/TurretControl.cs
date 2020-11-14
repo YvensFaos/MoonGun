@@ -11,21 +11,21 @@ public class TurretControl : MonoBehaviour
     [SerializeField] private Image cooldownImage;
     
     [Header("Turret Properties")] 
-    [SerializeField] private float coolDownTimer = 0.5f;
+    [SerializeField] private float coolDownTimer = 1.5f;
     [Range(1.0f, 150.0f)]
-    [SerializeField] private float rotationRange = 1.0f;
-    [SerializeField] private float rotationSpeed = 1.0f;
+    [SerializeField] private float rotationRange = 70.0f;
+    [SerializeField] private float rotationSpeed = 2.0f;
 
     private bool _canShoot = true;
     
     [Header("Projectile Properties")]
     [SerializeField] private Rigidbody bulletGameObject;
-    [SerializeField] private float projectileForce = 100.0f;
-    [SerializeField] private float projectileLife = 2.0f;
-    [SerializeField] private Vector3 projectileScaling = new Vector3(1.0f, 1.0f, 1.0f);
+    [SerializeField] private float projectileForce = 4.0f;
+    [SerializeField] private float projectileLife = 4.0f;
+    [SerializeField] private Vector3 projectileScaling = new Vector3(0.09f, 0.09f, 0.09f);
     
     [Header("Debug Properties")]
-    [SerializeField] private float rayDebugLength = 10.0f;
+    [SerializeField] private float rayDebugLength = 0.22f;
     
     void Update()
     {
@@ -83,5 +83,20 @@ public class TurretControl : MonoBehaviour
             Gizmos.color = Color.red;
             Gizmos.DrawRay(tipPosition, vector * rayDebugLength);
         }
+    }
+
+    public void UpgradeProjectileForce(float newForce)
+    {
+        projectileForce = newForce;
+    }
+
+    public void UpgradeProjectileScale(Vector3 newScale)
+    {
+        projectileScaling = newScale;
+    }
+
+    public void UpgradeCooldown(float newCooldown)
+    {
+        coolDownTimer = newCooldown;
     }
 }
