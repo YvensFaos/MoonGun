@@ -1,26 +1,35 @@
-﻿using UnityEngine;
+﻿using DG.Tweening;
+using UnityEngine;
+using UnityEngine.UI;
 
 public class TurretControl : MonoBehaviour
 {
-
-    public GameObject turrentRotation;
-    [Range(1.0f, 150.0f)]
-    public float rotationRange = 1.0f;
-
-    public float rotationSpeed = 1.0f;
+    [Header("Turret Objects")]
+    [SerializeField] private GameObject turretRotation;
+    [SerializeField] private GameObject turretAimBase;
+    [SerializeField] private GameObject turretAimTip;
+    [SerializeField] private Image cooldownImage;
     
-    public GameObject turrentAimBase;
-    public GameObject turrentAimTip;
+    [Header("Turret Properties")] 
+    [SerializeField] private float coolDownTimer = 0.5f;
+    [Range(1.0f, 150.0f)]
+    [SerializeField] private float rotationRange = 1.0f;
+    [SerializeField] private float rotationSpeed = 1.0f;
 
-    public float rayDebugLength = 10.0f;
-
-    public Rigidbody bulletGameObject;
-    public float projectileForce = 100.0f;
-    public float projectileLife = 2.0f;
+    private bool _canShoot = true;
+    
+    [Header("Projectile Properties")]
+    [SerializeField] private Rigidbody bulletGameObject;
+    [SerializeField] private float projectileForce = 100.0f;
+    [SerializeField] private float projectileLife = 2.0f;
+    [SerializeField] private Vector3 projectileScaling = new Vector3(1.0f, 1.0f, 1.0f);
+    
+    [Header("Debug Properties")]
+    [SerializeField] private float rayDebugLength = 10.0f;
     
     void Update()
     {
-        var rot = turrentRotation.transform.rotation.eulerAngles;
+        var rot = turretRotation.transform.rotation.eulerAngles;
         float rotation = 0.0f;
         bool rotationHappened = false;
         if (Input.GetKey(KeyCode.A))
@@ -37,28 +46,39 @@ public class TurretControl : MonoBehaviour
         {
             rot.z = rotation;
         }
-        turrentRotation.transform.rotation = Quaternion.Euler(rot);
+        turretRotation.transform.rotation = Quaternion.Euler(rot);
 
         
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && _canShoot)
         {
-            var tipPosition = turrentAimTip.transform.position;
-            var vector = tipPosition - turrentAimBase.transform.position;
+            var tipPosition = turretAimTip.transform.position;
+            var vector = tipPosition - turretAimBase.transform.position;
             vector.Normalize();
             
-            var bullet = Instantiate(bulletGameObject, turrentRotation.transform.position,
+            var bullet = Instantiate(bulletGameObject, turretRotation.transform.position,
                 Quaternion.identity);
+            bullet.transform.localScale = projectileScaling;
             bullet.AddForce(vector * projectileForce, ForceMode.Impulse);
             Destroy(bullet.gameObject, projectileLife);
+
+            _canShoot = false;
+            cooldownImage.fillAmount = 0.0f;
+            var tween = cooldownImage.DOFillAmount(1.0f, coolDownTimer);
+            tween.OnComplete(CanShootAgain);
         }
+    }
+
+    private void CanShootAgain()
+    {
+        _canShoot = true;
     }
 
     public void OnDrawGizmos()
     {
-        if (turrentAimBase != null && turrentAimTip != null)
+        if (turretAimBase != null && turretAimTip != null)
         {
-            var tipPosition = turrentAimTip.transform.position;
-            var vector = tipPosition - turrentAimBase.transform.position;
+            var tipPosition = turretAimTip.transform.position;
+            var vector = tipPosition - turretAimBase.transform.position;
             vector.Normalize();
             Gizmos.color = Color.red;
             Gizmos.DrawRay(tipPosition, vector * rayDebugLength);

@@ -32,6 +32,7 @@ public class GameLogic : MonoBehaviour
     [Header("Game Behaviours")]
     [SerializeField] private ResourcePanel resourcePanel;
     [SerializeField] private AsteroidSpawner asteroidSpawner;
+    [SerializeField] private TurretControl turretControl;
 
     public void ToggleAsteroidSpawner(bool toggle)
     {
