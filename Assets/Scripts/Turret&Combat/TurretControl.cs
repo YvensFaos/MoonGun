@@ -37,14 +37,18 @@ public class TurretControl : MonoBehaviour
             Vector2 positionOnScreen = turretCamera.WorldToViewportPoint (transform.position);
             Vector2 mouseOnScreen = turretCamera.ScreenToViewportPoint(Input.mousePosition);
             
-            float AngleBetweenTwoPoints(Vector3 a, Vector3 b) {
-                return Mathf.Atan2(a.y - b.y, a.x - b.x) * Mathf.Rad2Deg;
+            float AngleBetweenTwoPoints(Vector3 a, Vector3 b)
+            {
+                var y = a.y - b.y;
+                //Force positive Y to avoid angle inversion at 180 degrees.
+                y = y < 0.0f ? 0.0f : y;
+                return Mathf.Atan2(y, a.x - b.x) * Mathf.Rad2Deg;
             }
 
             //-90.0f in the end was necessary due to the object's initial position
             float angle = AngleBetweenTwoPoints( mouseOnScreen, positionOnScreen) - 90.0f;
+            angle = Mathf.Clamp(angle, -rotationRange, rotationRange);
             turretRotation.transform.rotation =  Quaternion.Euler (new Vector3(0f,0f,angle));
-            
         }
         
         ShootMechanic();
