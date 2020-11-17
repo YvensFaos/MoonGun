@@ -242,7 +242,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &120181620
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2839,10 +2839,10 @@ RectTransform:
   m_Father: {fileID: 978240752}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.45900002, y: 0.2983704}
-  m_AnchorMax: {x: 0.5287187, y: 0.40268523}
+  m_AnchorMin: {x: 0.45900002, y: 0.006666667}
+  m_AnchorMax: {x: 0.5287187, y: 0.111629635}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0.0000038146973}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1026609219
 MonoBehaviour:
@@ -2915,7 +2915,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1058263105
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3912,6 +3912,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 7268840526328235918}
+        m_TargetAssemblyTypeName: TurretControl, Assembly-CSharp
+        m_MethodName: ToggleTurretMovement
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &1176505243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4181,6 +4193,18 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 70
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7268840526328235918}
+        m_TargetAssemblyTypeName: TurretControl, Assembly-CSharp
+        m_MethodName: ToggleTurretMovement
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -4887,7 +4911,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1561290451
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5140,10 +5164,10 @@ RectTransform:
   m_Father: {fileID: 978240752}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.39100003, y: 0.4884259}
-  m_AnchorMax: {x: 0.60020834, y: 0.5533148}
-  m_AnchoredPosition: {x: -1.6159973, y: -108.2}
-  m_SizeDelta: {x: 0, y: 2}
+  m_AnchorMin: {x: 0.38969794, y: 0.09068519}
+  m_AnchorMax: {x: 0.60020834, y: 0.15200001}
+  m_AnchoredPosition: {x: -0.6159973, y: -2}
+  m_SizeDelta: {x: -2, y: 6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1578867721
 MonoBehaviour:
@@ -5169,16 +5193,16 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: b0800ca583d894466a867d749cee3db6, type: 3}
     m_FontSize: 25
     m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
+    m_BestFit: 1
+    m_MinSize: 25
+    m_MaxSize: 82
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Space
+  m_Text: Space to SHOOT
 --- !u!222 &1578867722
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5696,7 +5720,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.211875, y: 0.057442628}
   m_AnchorMax: {x: 0.33062503, y: 0.093}
-  m_AnchoredPosition: {x: -0.0000038146973, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0.0000076293945, y: -0.000011444092}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1670777682
@@ -6677,7 +6701,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1996532449
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8192,6 +8216,10 @@ PrefabInstance:
       propertyPath: coolDownTimer
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 7268840526328235918, guid: 85f5b293d1fe14b2d9572fb59b8d129c, type: 3}
+      propertyPath: turretCamera
+      value: 
+      objectReference: {fileID: 1687258584}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85f5b293d1fe14b2d9572fb59b8d129c, type: 3}
 --- !u!4 &3971710052201087403

@@ -13,12 +13,12 @@ public class TurretControl : MonoBehaviour
     [SerializeField] private Camera turretCamera;
 
     [Header("Turret Properties")] 
-    [SerializeField] private bool canMove = true;
     [SerializeField] private float coolDownTimer = 1.5f;
     [Range(1.0f, 150.0f)]
     [SerializeField] private float rotationRange = 70.0f;
     [SerializeField] private float rotationSpeed = 2.0f;
-
+    
+    private bool _canMove = true;
     private bool _canShoot = true;
     
     [Header("Projectile Properties")]
@@ -32,7 +32,7 @@ public class TurretControl : MonoBehaviour
     
     void Update()
     {
-        if (canMove)
+        if (_canMove)
         {
             Vector2 positionOnScreen = turretCamera.WorldToViewportPoint (transform.position);
             Vector2 mouseOnScreen = turretCamera.ScreenToViewportPoint(Input.mousePosition);
@@ -78,6 +78,11 @@ public class TurretControl : MonoBehaviour
     private void CanShootAgain()
     {
         _canShoot = true;
+    }
+
+    public void ToggleTurretMovement(bool movement)
+    {
+        _canMove = movement;
     }
 
     public void OnDrawGizmos()
