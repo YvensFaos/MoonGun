@@ -9,8 +9,11 @@ public class TurretControl : MonoBehaviour
     [SerializeField] private GameObject turretAimBase;
     [SerializeField] private GameObject turretAimTip;
     [SerializeField] private Image cooldownImage;
-    
+
+    [SerializeField] private Camera turretCamera;
+
     [Header("Turret Properties")] 
+    [SerializeField] private bool canMove = true;
     [SerializeField] private float coolDownTimer = 1.5f;
     [Range(1.0f, 150.0f)]
     [SerializeField] private float rotationRange = 70.0f;
@@ -29,32 +32,32 @@ public class TurretControl : MonoBehaviour
     
     void Update()
     {
-        var rot = turretRotation.transform.rotation.eulerAngles;
-        float rotation = 0.0f;
-        bool rotationHappened = false;
-        if (Input.GetKey(KeyCode.A))
+        if (canMove)
         {
-            rotation = rot.z + rotationSpeed;
-            rotationHappened = true;
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            rotation = rot.z - rotationSpeed;
-            rotationHappened = true;
-        }
-        if (rotationHappened && (rotation > 360.0f - rotationRange || rotation < rotationRange))
-        {
-            rot.z = rotation;
-        }
-        turretRotation.transform.rotation = Quaternion.Euler(rot);
+            Vector2 positionOnScreen = turretCamera.WorldToViewportPoint (transform.position);
+            Vector2 mouseOnScreen = turretCamera.ScreenToViewportPoint(Input.mousePosition);
+            
+            float AngleBetweenTwoPoints(Vector3 a, Vector3 b) {
+                return Mathf.Atan2(a.y - b.y, a.x - b.x) * Mathf.Rad2Deg;
+            }
 
+            //-90.0f in the end was necessary due to the object's initial position
+            float angle = AngleBetweenTwoPoints( mouseOnScreen, positionOnScreen) - 90.0f;
+            turretRotation.transform.rotation =  Quaternion.Euler (new Vector3(0f,0f,angle));
+            
+        }
         
+        ShootMechanic();
+    }
+
+    private void ShootMechanic()
+    {
         if (Input.GetKeyDown(KeyCode.Space) && _canShoot)
         {
             var tipPosition = turretAimTip.transform.position;
             var vector = tipPosition - turretAimBase.transform.position;
             vector.Normalize();
-            
+
             var bullet = Instantiate(bulletGameObject, turretRotation.transform.position,
                 Quaternion.identity);
             bullet.transform.localScale = projectileScaling;
