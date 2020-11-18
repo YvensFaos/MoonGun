@@ -16,7 +16,9 @@ public class TurretControl : MonoBehaviour
     [SerializeField] private float coolDownTimer = 1.5f;
     [Range(1.0f, 150.0f)]
     [SerializeField] private float rotationRange = 70.0f;
-    [SerializeField] private float rotationSpeed = 2.0f;
+
+    [SerializeField] private float laserCooldown = 2.0f;
+    [SerializeField] private GameObject laserObject;
     
     private bool _canMove = true;
     private bool _canShoot = true;

@@ -33,6 +33,10 @@ public class Hangar : MonoBehaviour
         {
             var turret = GameLogic.Instance.Turret;
             turret.UpgradeCooldown(0.75f);
+        } else if (info.name.Equals("Laser Shot"))
+        {
+            var turret = GameLogic.Instance.Turret;
+            
         }
     }
 }

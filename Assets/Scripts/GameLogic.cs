@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
+using DG.Tweening;
 using UnityEngine;
 
 public class GameLogic : MonoBehaviour
@@ -54,6 +56,8 @@ public class GameLogic : MonoBehaviour
         IncrementAsteroids(0);
         IncrementMinerals(0);
         _clickEnable = true;
+
+        _fightPerlin = fightCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
     }
     
     [Header("Game Properties")]
@@ -69,6 +73,8 @@ public class GameLogic : MonoBehaviour
     [SerializeField] private MineHarvest mineHarvest;
     [SerializeField] private Hangar hangar;
     //Add Labs
+    [SerializeField] private CinemachineVirtualCamera fightCamera;
+    private CinemachineBasicMultiChannelPerlin _fightPerlin;
 
     private bool _clickEnable;
     
@@ -104,5 +110,13 @@ public class GameLogic : MonoBehaviour
     public void IncrementMinerals(int value)
     {
         MineralsCollected += value;
+    }
+
+    public void ShakeFightCamera(float intensity, float time)
+    {
+        _fightPerlin.m_FrequencyGain = intensity;
+        DOTween.To(() => _fightPerlin.m_FrequencyGain, 
+            value => _fightPerlin.m_FrequencyGain = value, 
+            0.0f, time); 
     }
 }

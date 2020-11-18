@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.UIElements;
 
 [RequireComponent(typeof(Collider))]
 public class RaycastActivate : MonoBehaviour

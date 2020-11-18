@@ -20,7 +20,9 @@ Material:
     serializedVersion: 3
     m_TexEnvs: []
     m_Floats:
+    - LightPower: 5.25
     - Vector1_3091F9EC: 0.2
+    - Vector1_F0DC2C5A: 5.25
     m_Colors:
     - Color_246C7C0D: {r: 1, g: 0.24595529, b: 0, a: 1}
     - Color_E4E1786F: {r: 0.7735849, g: 0.31445667, b: 0.15690637, a: 1}
