@@ -37,6 +37,7 @@ public class AsteroidDestruction : MonoBehaviour
          if (particleSystem != null)
          {
             particleSystem.Play();
+            Destroy(particleSystem.gameObject, 0.5f);
          }
          GameLogic.Instance.ShakeFightCamera(2.0f, 0.5f);
          GameLogic.Instance.AsteroidDestroyed();

@@ -1207,7 +1207,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: V0.4.1 MoonFacilities
+  m_Text: V0.5 MoonLaser
 --- !u!222 &357815750
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2322,7 +2322,7 @@ MonoBehaviour:
     asteroidCost: 0
   - name: Laser Shot
     description: Install the laser cannon. You can switch weapons using SHIFT.
-    mineralCost: 60
+    mineralCost: 1
     asteroidCost: 0
   upgradesList: {fileID: 1227655054}
   upgradeButton: {fileID: 8406846954609561390, guid: 6a0053a76c9084528bc83d6e8d860d7e, type: 3}
@@ -10474,6 +10474,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 984999932}
     m_Modifications:
+    - target: {fileID: 9121081775349476712, guid: 70f91736d52154d8a802c8500990f7da, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9121081777052216396, guid: 70f91736d52154d8a802c8500990f7da, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
