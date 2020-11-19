@@ -61,7 +61,7 @@ public class TurretControl : MonoBehaviour
         SwitchWeapon();
     }
 
-    private void ShootMechanic()
+    private void ShootMechanic() 
     {
         if (Input.GetKeyDown(KeyCode.Space) && _canShoot)
         {
@@ -90,6 +90,7 @@ public class TurretControl : MonoBehaviour
             }
         }
     }
+    
 
     private void CannonShoot()
     {
@@ -97,7 +98,7 @@ public class TurretControl : MonoBehaviour
         var vector = tipPosition - turretAimBase.transform.position;
         vector.Normalize();
 
-        var bullet = Instantiate(bulletGameObject, turretRotation.transform.position,
+        var bullet = Instantiate(bulletGameObject, tipPosition,
             Quaternion.identity);
         bullet.transform.localScale = projectileScaling;
         bullet.AddForce(vector * projectileForce, ForceMode.Impulse);
