@@ -40,25 +40,23 @@ public class TurretControl : MonoBehaviour
     {
         if (_canMove)
         {
-            Vector2 positionOnScreen = turretCamera.WorldToViewportPoint (transform.position);
-            Vector2 mouseOnScreen = turretCamera.ScreenToViewportPoint(Input.mousePosition);
-            
-            float AngleBetweenTwoPoints(Vector3 a, Vector3 b)
-            {
-                var y = a.y - b.y;
-                //Force positive Y to avoid angle inversion at 180 degrees.
-                y = y < 0.0f ? 0.0f : y;
-                return Mathf.Atan2(y, a.x - b.x) * Mathf.Rad2Deg;
-            }
-
-            //-90.0f in the end was necessary due to the object's initial position
-            float angle = AngleBetweenTwoPoints( mouseOnScreen, positionOnScreen) - 90.0f;
-            angle = Mathf.Clamp(angle, -rotationRange, rotationRange);
-            turretRotation.transform.rotation =  Quaternion.Euler (new Vector3(0f,0f,angle));
+            RotateTurret();
+            ShootMechanic();
+            SwitchWeapon();
         }
-        
-        ShootMechanic();
-        SwitchWeapon();
+    }
+
+    private void RotateTurret()
+    {
+        var position = turretRotation.transform.position;
+        var mousePos = Input.mousePosition;
+        var screenPos = turretCamera.ScreenToWorldPoint(
+            new Vector3(mousePos.x, mousePos.y, position.z - turretCamera.transform.position.z));
+
+        var eulerAngles = turretRotation.transform.rotation.eulerAngles;
+        eulerAngles.z = Mathf.Atan2((screenPos.y - position.y), (screenPos.x - position.x)) * Mathf.Rad2Deg - 90.0f;
+        eulerAngles.z = Mathf.Clamp(eulerAngles.z, -rotationRange, rotationRange);
+        turretRotation.transform.rotation = Quaternion.Euler(eulerAngles);
     }
 
     private void ShootMechanic() 
