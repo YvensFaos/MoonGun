@@ -115,8 +115,8 @@ public class GameLogic : MonoBehaviour
     public void ShakeFightCamera(float intensity, float time)
     {
         _fightPerlin.m_FrequencyGain = intensity;
-        DOTween.To(() => _fightPerlin.m_FrequencyGain, 
-            value => _fightPerlin.m_FrequencyGain = value, 
-            0.0f, time); 
+        DOTween.To(() => _fightPerlin.m_FrequencyGain,
+            value => _fightPerlin.m_FrequencyGain = value,
+            0.0f, time);
     }
 }

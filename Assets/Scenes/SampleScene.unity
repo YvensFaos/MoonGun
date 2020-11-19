@@ -2321,8 +2321,8 @@ MonoBehaviour:
     mineralCost: 5
     asteroidCost: 0
   - name: Laser Shot
-    description: Change the projectile to be a laser. It has cooldown.
-    mineralCost: 130
+    description: Install the laser cannon. You can switch weapons using SHIFT.
+    mineralCost: 60
     asteroidCost: 0
   upgradesList: {fileID: 1227655054}
   upgradeButton: {fileID: 8406846954609561390, guid: 6a0053a76c9084528bc83d6e8d860d7e, type: 3}
@@ -6882,6 +6882,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1996532448}
   m_CullTransparentMesh: 0
+--- !u!1 &2007280237 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9121081777052216397, guid: 70f91736d52154d8a802c8500990f7da, type: 3}
+  m_PrefabInstance: {fileID: 9121081776487742843}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2012325401
 GameObject:
   m_ObjectHideFlags: 0
@@ -8362,6 +8367,18 @@ PrefabInstance:
     - target: {fileID: 7268840526328235918, guid: 85f5b293d1fe14b2d9572fb59b8d129c, type: 3}
       propertyPath: rotationRange
       value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 7268840526328235918, guid: 85f5b293d1fe14b2d9572fb59b8d129c, type: 3}
+      propertyPath: laserObject
+      value: 
+      objectReference: {fileID: 2007280237}
+    - target: {fileID: 7268840526328235918, guid: 85f5b293d1fe14b2d9572fb59b8d129c, type: 3}
+      propertyPath: laserCooldown
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7268840526328235918, guid: 85f5b293d1fe14b2d9572fb59b8d129c, type: 3}
+      propertyPath: cannonType
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8699765391944953746, guid: 85f5b293d1fe14b2d9572fb59b8d129c, type: 3}
       propertyPath: m_LocalRotation.x
@@ -10504,6 +10521,10 @@ PrefabInstance:
     - target: {fileID: 9121081777052216397, guid: 70f91736d52154d8a802c8500990f7da, type: 3}
       propertyPath: m_Name
       value: LaserPower
+      objectReference: {fileID: 0}
+    - target: {fileID: 9121081777052216397, guid: 70f91736d52154d8a802c8500990f7da, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70f91736d52154d8a802c8500990f7da, type: 3}
