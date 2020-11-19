@@ -86,6 +86,8 @@ public class TurretControl : MonoBehaviour
                     cannonType = TurretCannonType.CANNON;
                     break;
             }
+            
+            GameLogic.Instance.ChangeWeapon(cannonType);
         }
     }
     

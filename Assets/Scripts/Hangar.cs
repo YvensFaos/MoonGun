@@ -37,6 +37,7 @@ public class Hangar : MonoBehaviour
         {
             var turret = GameLogic.Instance.Turret;
             turret.UnlockLaser();
+            GameLogic.Instance.DisplayWeaponPanel();
         }
     }
 }

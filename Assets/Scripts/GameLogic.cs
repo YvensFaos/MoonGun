@@ -68,6 +68,7 @@ public class GameLogic : MonoBehaviour
     
     [Header("Game Behaviours")]
     [SerializeField] private ResourcePanel resourcePanel;
+    [SerializeField] private WeaponTextPanel weaponTextPanel;
     [SerializeField] private AsteroidSpawner asteroidSpawner;
     [SerializeField] private TurretControl turretControl;
     [SerializeField] private MineHarvest mineHarvest;
@@ -118,5 +119,15 @@ public class GameLogic : MonoBehaviour
         DOTween.To(() => _fightPerlin.m_FrequencyGain,
             value => _fightPerlin.m_FrequencyGain = value,
             0.0f, time);
+    }
+
+    public void DisplayWeaponPanel()
+    {
+        weaponTextPanel.gameObject.SetActive(true);
+    }
+
+    public void ChangeWeapon(TurretCannonType type)
+    {
+        weaponTextPanel.ChangeTextTo(type);
     }
 }
