@@ -63,7 +63,7 @@ public class TurretControl : MonoBehaviour
 
     private void ShootMechanic() 
     {
-        if (Input.GetKeyDown(KeyCode.Space) && _canShoot)
+        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) && _canShoot)
         {
             switch (cannonType)
             {
@@ -91,7 +91,6 @@ public class TurretControl : MonoBehaviour
         }
     }
     
-
     private void CannonShoot()
     {
         var tipPosition = turretAimTip.transform.position;
@@ -106,11 +105,7 @@ public class TurretControl : MonoBehaviour
 
         _canShoot = false;
         cooldownImage.fillAmount = 0.0f;
-        var tween = cooldownImage.DOFillAmount(1.0f, coolDownTimer);
-        tween.OnComplete(() =>
-        {
-            CanShootAgain();
-        });
+        cooldownImage.DOFillAmount(1.0f, coolDownTimer).OnComplete(CanShootAgain);
     }
 
     private void LaserShoot()
@@ -119,14 +114,10 @@ public class TurretControl : MonoBehaviour
         laserObject.SetActive(true);
         _canShoot = false;
         cooldownImage.fillAmount = 1.0f;
-        var tween = cooldownImage.DOFillAmount(0.0f, laserConsuption);
-        tween.OnComplete(() =>
+        cooldownImage.DOFillAmount(0.0f, laserConsuption).OnComplete(() =>
         {
             laserObject.SetActive(false);    
-            cooldownImage.DOFillAmount(1.0f, laserCooldown).OnComplete(() =>
-            {
-                CanShootAgain();    
-            });
+            cooldownImage.DOFillAmount(1.0f, laserCooldown).OnComplete(CanShootAgain);
         });
     }
 
