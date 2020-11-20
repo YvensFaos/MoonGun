@@ -16,17 +16,17 @@ MonoBehaviour:
   Upgrades:
   - name: Speed Bullet
     description: Cannon projectile move even faster.
-    mineralCost: 65
-    asteroidCost: 0
+    mineralCost: 0
+    asteroidCost: 65
   - name: Super Charge
     description: Cannon cooldown is reduced to 0.75 seconds.
-    mineralCost: 80
-    asteroidCost: 0
+    mineralCost: 0
+    asteroidCost: 80
   - name: Pristine Laser
     description: Laser duration prolonged to 0.75 seconds.
-    mineralCost: 70
-    asteroidCost: 10
+    mineralCost: 10
+    asteroidCost: 70
   - name: Laser Recharge
     description: Laser cooldown is reduced to 1.0 seconds.
-    mineralCost: 90
-    asteroidCost: 15
+    mineralCost: 15
+    asteroidCost: 90

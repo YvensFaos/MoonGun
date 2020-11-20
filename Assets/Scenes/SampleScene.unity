@@ -1372,6 +1372,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SelectionParticles
       objectReference: {fileID: 0}
+    - target: {fileID: 9068511048238765112, guid: a18ca12e9225848a6ab4ce9fd2a3c04a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9068511048238765113, guid: a18ca12e9225848a6ab4ce9fd2a3c04a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1493,7 +1497,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: V0.5 MoonLaser
+  m_Text: V0.6 MoonTiers
 --- !u!222 &357815750
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6450,7 +6454,7 @@ MonoBehaviour:
   labQuestInfos:
   - questNumber: 1
     name: Take Them Down
-    description: Protect the base from 10 asteroids.
+    description: Protect the base from 10 asteroids. - NOT WORKING YET.
     mineralReward: 10
     asteroidReward: 15
   labQuestList: {fileID: 1234474744}
@@ -7440,6 +7444,10 @@ PrefabInstance:
     - target: {fileID: 9068511048238765112, guid: a18ca12e9225848a6ab4ce9fd2a3c04a, type: 3}
       propertyPath: m_Name
       value: SelectionParticles
+      objectReference: {fileID: 0}
+    - target: {fileID: 9068511048238765112, guid: a18ca12e9225848a6ab4ce9fd2a3c04a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9068511048238765113, guid: a18ca12e9225848a6ab4ce9fd2a3c04a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -13493,6 +13501,10 @@ PrefabInstance:
     - target: {fileID: 9068511048238765112, guid: a18ca12e9225848a6ab4ce9fd2a3c04a, type: 3}
       propertyPath: m_Name
       value: SelectionParticles
+      objectReference: {fileID: 0}
+    - target: {fileID: 9068511048238765112, guid: a18ca12e9225848a6ab4ce9fd2a3c04a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9068511048238765113, guid: a18ca12e9225848a6ab4ce9fd2a3c04a, type: 3}
       propertyPath: m_LocalPosition.x

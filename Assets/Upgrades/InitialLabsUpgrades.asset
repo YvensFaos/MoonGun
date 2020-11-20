@@ -17,10 +17,9 @@ MonoBehaviour:
   - name: Laser Shot
     description: Install the laser cannon. You can switch weapons using SHIFT.
     mineralCost: 20
-    asteroidCost: 100
+    asteroidCost: 40
   - name: Mineral Laser
     description: Allow our scientists to study the laser properties found in the
       moon minerals.
     mineralCost: 50
     asteroidCost: 50
-  Facility: 2

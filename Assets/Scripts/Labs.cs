@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Data.Util;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -37,10 +35,10 @@ public class Labs : Upgradable
 
     public void TakeQuest(QuestInfo info)
     {
-        switch (info.questNumber)
-        {
-            
-            default: break;
-        }
+        // switch (info.questNumber)
+        // {
+        //     
+        //     default: break;
+        // }
     }
 }
