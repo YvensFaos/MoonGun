@@ -17,7 +17,7 @@ public class TurretControl : MonoBehaviour
     [SerializeField] private float rotationRange = 70.0f;
     [SerializeField] private TurretCannonType cannonType = TurretCannonType.CANNON;
     
-    private bool _unlockedLaser = false;
+    private bool _unlockedLaser; //false by default
     private bool _canMove = true;
     private bool _canShoot = true;
     
@@ -26,7 +26,7 @@ public class TurretControl : MonoBehaviour
     [SerializeField] private float projectileForce = 4.0f;
     [SerializeField] private float projectileLife = 4.0f;
     [SerializeField] private Vector3 projectileScaling = new Vector3(0.09f, 0.09f, 0.09f);
-    [SerializeField] private float coolDownTimer = 1.5f;
+    [SerializeField] private float cannonCoolDownTimer = 1.5f;
     
     [Header("Laser Properties")]
     [SerializeField] private GameObject laserObject;
@@ -105,7 +105,7 @@ public class TurretControl : MonoBehaviour
 
         _canShoot = false;
         cooldownImage.fillAmount = 0.0f;
-        cooldownImage.DOFillAmount(1.0f, coolDownTimer).OnComplete(CanShootAgain);
+        cooldownImage.DOFillAmount(1.0f, cannonCoolDownTimer).OnComplete(CanShootAgain);
     }
 
     private void LaserShoot()
@@ -153,9 +153,19 @@ public class TurretControl : MonoBehaviour
         projectileScaling = newScale;
     }
 
-    public void UpgradeCooldown(float newCooldown)
+    public void UpgradeCannonCooldown(float newCooldown)
     {
-        coolDownTimer = newCooldown;
+        cannonCoolDownTimer = newCooldown;
+    }
+
+    public void UpgradeLaserDuration(float newDuraction)
+    {
+        laserConsuption = newDuraction;
+    }
+
+    public void UpgradeLaserCooldown(float newCooldown)
+    {
+        laserCooldown = newCooldown;
     }
 
     public void UnlockLaser()

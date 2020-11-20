@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f13571ee45d4dd1aac3fdb523bc9008, type: 3}
+  m_Name: HangerUpgrade_1
+  m_EditorClassIdentifier: 
+  UpgradeNecessaryToUnlock: Mineral Laser
+  Upgrades:
+  - name: Speed Bullet
+    description: Cannon projectile move even faster.
+    mineralCost: 65
+    asteroidCost: 0
+  - name: Super Charge
+    description: Cannon cooldown is reduced to 0.75 seconds.
+    mineralCost: 80
+    asteroidCost: 0
+  - name: Pristine Laser
+    description: Laser duration prolonged to 0.75 seconds.
+    mineralCost: 70
+    asteroidCost: 10
+  - name: Laser Recharge
+    description: Laser cooldown is reduced to 1.0 seconds.
+    mineralCost: 90
+    asteroidCost: 15

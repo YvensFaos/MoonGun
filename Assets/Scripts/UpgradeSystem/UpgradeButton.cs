@@ -31,7 +31,7 @@ public class UpgradeButton : MonoBehaviour
          {
             case FacilityType.LABS:
             {
-               
+               GameLogic.Instance.LabsControl.UnlockUpgrade(_upgradeInfo);
             }
                break;
             case FacilityType.MINES:
@@ -45,7 +45,7 @@ public class UpgradeButton : MonoBehaviour
             }
                break;
          }
-         
+         GameLogic.Instance.NotifyUpgradeForProgress(_upgradeInfo);
          Destroy(gameObject);
       }
       else

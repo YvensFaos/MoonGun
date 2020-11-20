@@ -15,6 +15,8 @@ public class GameLogic : MonoBehaviour
 
     public Hangar HangarControl => hangar;
 
+    public Labs LabsControl => labs;
+
     public int AsteroidsCollected
     {
         get => asteroidsCollected;
@@ -40,25 +42,6 @@ public class GameLogic : MonoBehaviour
         get => _clickEnable;
         set => _clickEnable = value;
     }
-
-    private void Awake()
-    {
-        if (Instance != null)
-        {
-            Destroy(Instance.gameObject);
-        }
-
-        _instance = this;
-    }
-
-    private void Start()
-    {
-        IncrementAsteroids(0);
-        IncrementMinerals(0);
-        _clickEnable = true;
-
-        _fightPerlin = fightCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
-    }
     
     [Header("Game Properties")]
     [SerializeField] private int asteroidsCollected = 0;
@@ -73,11 +56,40 @@ public class GameLogic : MonoBehaviour
     [SerializeField] private TurretControl turretControl;
     [SerializeField] private MineHarvest mineHarvest;
     [SerializeField] private Hangar hangar;
-    //Add Labs
+    [SerializeField] private Labs labs;
+    
+    [Header("Camera Elements")]
     [SerializeField] private CinemachineVirtualCamera fightCamera;
     private CinemachineBasicMultiChannelPerlin _fightPerlin;
 
     private bool _clickEnable;
+
+    [Header("Cheats")] 
+    [SerializeField] private bool noFundsCheck;
+    
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            Destroy(Instance.gameObject);
+        }
+
+        _instance = this;
+        
+        //Disable all cheats in the final build.
+#if UNITY_WEBGL
+        noFundsCheck = false;
+#endif
+    }
+
+    private void Start()
+    {
+        IncrementAsteroids(0);
+        IncrementMinerals(0);
+        _clickEnable = true;
+
+        _fightPerlin = fightCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+    }
     
     public void ToggleAsteroidSpawner(bool toggle)
     {
@@ -91,16 +103,24 @@ public class GameLogic : MonoBehaviour
 
     public bool CheckFunds(int asteroidCost, int mineralCost)
     {
-        return AsteroidsCollected >= asteroidCost && MineralsCollected >= mineralCost;
+        return noFundsCheck || (AsteroidsCollected >= asteroidCost && MineralsCollected >= mineralCost);
     }
 
     public void PayForUpgrade(int asteroidCost, int mineralCost)
     {
         if (CheckFunds(asteroidCost, mineralCost))
         {
-            AsteroidsCollected -= asteroidCost;
-            MineralsCollected -= mineralCost;
+            AsteroidsCollected = Mathf.Max(AsteroidsCollected - asteroidCost, 0);
+            MineralsCollected =  Mathf.Max(MineralsCollected - mineralCost, 0);
         }
+    }
+
+    public void NotifyUpgradeForProgress(UpgradeInfo upgradeInfo)
+    {
+        var upgradeInfoName = upgradeInfo.name;
+        LabsControl.CheckProgression(upgradeInfoName);
+        HangarControl.CheckProgression(upgradeInfoName);
+        MineControl.CheckProgression(upgradeInfoName);
     }
     
     public void IncrementAsteroids(int value)
