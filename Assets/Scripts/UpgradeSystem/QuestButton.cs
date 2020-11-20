@@ -13,8 +13,8 @@ public class QuestButton : MonoBehaviour
     public void Initialize(QuestInfo questInfo)
     {
         _questInfo = questInfo;
-        asteroidReward.text = questInfo.asteroidReward.ToString();
-        mineralReward.text = questInfo.mineralReward.ToString();
+        asteroidReward.text = "+" + questInfo.asteroidReward;
+        mineralReward.text = "+" +  questInfo.mineralReward;
         questName.text = questInfo.name;
         questDescription.text = questInfo.description;
     }
