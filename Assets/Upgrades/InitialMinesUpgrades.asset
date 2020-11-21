@@ -22,4 +22,3 @@ MonoBehaviour:
     description: Mine 2 minerals per tick.
     mineralCost: 0
     asteroidCost: 10
-  Facility: 1

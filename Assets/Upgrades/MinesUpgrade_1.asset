@@ -22,3 +22,7 @@ MonoBehaviour:
     description: Mine 3 minerals per tick.
     mineralCost: 0
     asteroidCost: 50
+  - name: Nuggets!
+    description: Small chance of finding extra minerals per tick.
+    mineralCost: 0
+    asteroidCost: 20
