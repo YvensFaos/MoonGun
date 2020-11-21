@@ -1,22 +1,24 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [RequireComponent(typeof(Collider))]
 public class AsteroidSpawner : MonoBehaviour
 {
-    public Collider spawnerCollider;
+    [Header("Spawner Properties")]
+    [SerializeField] private  Collider spawnerCollider;
+    [SerializeField] private  Vector3 minBounds;
+    [SerializeField] private  Vector3 maxBounds;
 
-    public Vector3 minBounds;
-    public Vector3 maxBounds;
+    [Header("Asteroids to Spawn")]
+    [SerializeField] private  List<AsteroidToSpawn> asteroids;
+    [SerializeField] private  float timer = 0.5f;
+    private float _totalChance;
+    private IEnumerator _spawner;
 
-    public Rigidbody asteroidGameObject;
-    public float asteroidLife = 1.0f;
-
-    public float timer = 0.5f;
-
-    private IEnumerator spawner;
-
-    public bool debugUpdatePosition = false;
+    [Header("Debug")]
+    [SerializeField] private bool debugUpdatePosition = false;
     
     void Awake()
     {
@@ -27,16 +29,19 @@ public class AsteroidSpawner : MonoBehaviour
 
     private void Start()
     {
-        spawner = SpawnAsteroids();
-        StartCoroutine(spawner);
+        _spawner = SpawnAsteroids();
+        StartCoroutine(_spawner);
+
+        asteroids.Sort();
+        _totalChance = asteroids.Sum(asteroid => asteroid.spawnChance);
     }
 
     public void ToggleSpawner(bool toggle)
     {
-        StopCoroutine(spawner);
+        StopCoroutine(_spawner);
         if (toggle)
         {
-            StartCoroutine(spawner);
+            StartCoroutine(_spawner);
         }
     }
 
@@ -50,16 +55,32 @@ public class AsteroidSpawner : MonoBehaviour
         }
     }
 
+    private void ChanceSpawnAsteroids()
+    {
+        float chance = Random.Range(0.0f, _totalChance);
+        float chanceAcc = 0.0f;
+        foreach (var asteroid in asteroids)
+        {
+            if (chance < asteroid.spawnChance + chanceAcc)
+            {
+                var asteroidObject = Instantiate(asteroid.asteroidPrefab, new Vector3(Random.Range(minBounds.x, maxBounds.x), 
+                        Random.Range(minBounds.y, maxBounds.y), Random.Range(minBounds.z, maxBounds.z)),
+                    Quaternion.identity);
+                asteroidObject.AddForce(Vector3.down * asteroid.asteroidFallVelocity, ForceMode.Impulse);
+                Destroy(asteroidObject.gameObject, asteroid.asteroidLifeDuration);
+                return;
+            }
+
+            chanceAcc += asteroid.spawnChance;
+        }
+    }
+
     private IEnumerator SpawnAsteroids()
     {
         while (true)
         {
             yield return new WaitForSeconds(timer);
-            var asteroid = Instantiate(asteroidGameObject, new Vector3(Random.Range(minBounds.x, maxBounds.x), 
-                    Random.Range(minBounds.y, maxBounds.y), Random.Range(minBounds.z, maxBounds.z)),
-                Quaternion.identity);
-            asteroid.AddForce(Vector3.down * 1.0f, ForceMode.Impulse);
-            Destroy(asteroid.gameObject, asteroidLife);
+            ChanceSpawnAsteroids();
         }
     }
 }

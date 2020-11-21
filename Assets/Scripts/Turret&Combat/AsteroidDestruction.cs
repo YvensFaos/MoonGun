@@ -12,6 +12,14 @@ public class AsteroidDestruction : MonoBehaviour
    [SerializeField] private ParticleSystem particleSystem;
 
    private readonly string uniformName = "LightPower";
+
+   [Header("Asteroid Properties")] 
+   [SerializeField] private int asteroidsValue;
+   [SerializeField] private int mineralsValue;
+   [SerializeField] private float shakeForce = 2.0f;
+   [SerializeField] private float shakeTime = 0.5f;
+   [SerializeField] private float lightEffectPower = -2.0f;
+   [SerializeField] private float lightEffectTimer = 0.5f;
    
    private void Awake()
    {
@@ -39,12 +47,12 @@ public class AsteroidDestruction : MonoBehaviour
             particleSystem.Play();
             Destroy(particleSystem.gameObject, 0.5f);
          }
-         GameLogic.Instance.ShakeFightCamera(2.0f, 0.5f);
-         GameLogic.Instance.AsteroidDestroyed();
+         GameLogic.Instance.ShakeFightCamera(shakeForce, shakeTime);
+         GameLogic.Instance.AsteroidDestroyed(asteroidsValue, mineralsValue);
          _rigidbody.velocity = Vector3.zero;
          DOTween.To(() => _material.GetFloat(uniformName), 
             value => _material.SetFloat(uniformName, value), 
-            -2.0f, 0.5f).OnComplete(
+            lightEffectPower, lightEffectTimer).OnComplete(
             () =>
             {
                particleSystem.transform.parent = null;

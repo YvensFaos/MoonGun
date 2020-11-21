@@ -4957,3 +4957,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particleSystem: {fileID: 1850356196}
+  asteroidsValue: 1
+  mineralsValue: 0
+  shakeForce: 2
+  shakeTime: 0.5
+  lightEffectPower: -2
+  lightEffectTimer: 0.5

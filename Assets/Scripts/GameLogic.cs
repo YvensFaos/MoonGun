@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Cinemachine;
 using DG.Tweening;
@@ -96,9 +97,10 @@ public class GameLogic : MonoBehaviour
         asteroidSpawner.ToggleSpawner(toggle);
     }
     
-    public void AsteroidDestroyed()
+    public void AsteroidDestroyed(int asteroids = 1, int minerals = 0)
     {
-        IncrementAsteroids(1);
+        IncrementAsteroids(asteroids);
+        IncrementMinerals(minerals);
     }
 
     public bool CheckFunds(int asteroidCost, int mineralCost)
