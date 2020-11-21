@@ -13,11 +13,7 @@ public class Labs : Upgradable
     {
         base.Start();
         
-        labQuestInfos.ForEach(info =>
-        {
-            var quest = Instantiate(questButton, labQuestList.transform);
-            quest.Initialize(info);
-        });
+        labQuestInfos.ForEach(info => { AddQuestToList(info); });
     }
 
     public void UnlockUpgrade(UpgradeInfo info)
@@ -36,5 +32,11 @@ public class Labs : Upgradable
     public void TakeQuest(QuestInfo info)
     {
         GameLogic.Instance.QuestControl.ActivateQuest(info);
+    }
+    
+    public void AddQuestToList(QuestInfo info)
+    {
+        var quest = Instantiate(questButton, labQuestList.transform);
+        quest.Initialize(info);
     }
 }

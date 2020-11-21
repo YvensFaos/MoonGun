@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6596b67cc74342549ea3a7686dd2c0db, type: 3}
+  m_Name: QuestList
+  m_EditorClassIdentifier: 
+  quests:
+  - questNumber: 2
+    name: Destroy them!
+    description: Destroy 20 asteroids.
+    mineralReward: 25
+    asteroidReward: 25
+    asteroidsToDestroy: 20
+    complexQuest: 0
+    nextQuestToUnlock: 3
+  - questNumber: 3
+    name: No, I mean. DESTROY!
+    description: Destroy 50 asteroids.
+    mineralReward: 50
+    asteroidReward: 50
+    asteroidsToDestroy: 50
+    complexQuest: 0
+    nextQuestToUnlock: 4
+  - questNumber: 4
+    name: WREAK HAVOK!
+    description: For real. Destroy 150 asteroids.
+    mineralReward: 100
+    asteroidReward: 100
+    asteroidsToDestroy: 150
+    complexQuest: 0
+    nextQuestToUnlock: 0

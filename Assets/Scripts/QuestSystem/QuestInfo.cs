@@ -1,7 +1,7 @@
 using System;
 
 [Serializable]
-public struct QuestInfo
+public struct QuestInfo : IComparable
 {
     public int questNumber;
     public string name;
@@ -11,15 +11,11 @@ public struct QuestInfo
 
     public int asteroidsToDestroy;
     public bool complexQuest;
-
-    public QuestInfo(int questNumber, string name, string description, int mineralReward, int asteroidReward, int asteroidsToDestroy, bool complexQuest)
+    public int nextQuestToUnlock;
+    
+    public int CompareTo(object obj)
     {
-        this.questNumber = questNumber;
-        this.name = name;
-        this.description = description;
-        this.mineralReward = mineralReward;
-        this.asteroidReward = asteroidReward;
-        this.asteroidsToDestroy = asteroidsToDestroy;
-        this.complexQuest = complexQuest;
+        var questInfo = (QuestInfo) obj;
+        return questNumber.CompareTo(questInfo.questNumber);
     }
 }

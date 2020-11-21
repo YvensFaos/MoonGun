@@ -2771,7 +2771,7 @@ MonoBehaviour:
   questCompletedAnimator: {fileID: 1561966150}
   questObserver: {fileID: 588007194}
   fightCamera: {fileID: 50939843}
-  noFundsCheck: 1
+  noFundsCheck: 0
 --- !u!114 &588007194
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2784,6 +2784,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48a72d6322e204af997b9165597ef7e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  questList: {fileID: 11400000, guid: 97cffc4cb8c1045149e3870ae790fe43, type: 2}
 --- !u!1 &625510180
 GameObject:
   m_ObjectHideFlags: 0
@@ -6764,6 +6765,7 @@ MonoBehaviour:
     asteroidReward: 15
     asteroidsToDestroy: 10
     complexQuest: 0
+    nextQuestToUnlock: 2
   labQuestList: {fileID: 1234474744}
   questButton: {fileID: 6930741895899869335, guid: 07b05be07b2884e04a72c2a988ee0e3e, type: 3}
 --- !u!1 &1421812391
