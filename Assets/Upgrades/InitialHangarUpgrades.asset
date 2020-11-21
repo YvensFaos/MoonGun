@@ -16,13 +16,13 @@ MonoBehaviour:
   Upgrades:
   - name: Faster Shoot
     description: Turrent cannon projectiles move faster.
-    mineralCost: 0
-    asteroidCost: 20
+    mineralCost: 20
+    asteroidCost: 0
   - name: Bigger Projectile
     description: Make the cannon balls bigger.
-    mineralCost: 0
-    asteroidCost: 10
+    mineralCost: 10
+    asteroidCost: 0
   - name: Super Reload
     description: Decreases the cannon cooldown to 1.0 seconds.
-    mineralCost: 0
-    asteroidCost: 20
+    mineralCost: 20
+    asteroidCost: 0

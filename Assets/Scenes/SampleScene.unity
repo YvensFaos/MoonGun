@@ -8579,7 +8579,7 @@ MonoBehaviour:
     asteroidLifeDuration: 7
     spawnChance: 5
     asteroidFallVelocity: 0.6
-  timer: 0.5
+  timer: 1
   debugUpdatePosition: 0
 --- !u!65 &1684080915
 BoxCollider:
