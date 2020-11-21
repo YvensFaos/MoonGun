@@ -2706,6 +2706,7 @@ GameObject:
   - component: {fileID: 588007192}
   - component: {fileID: 588007191}
   - component: {fileID: 588007193}
+  - component: {fileID: 588007194}
   m_Layer: 0
   m_Name: GameLogic
   m_TagString: Untagged
@@ -2767,8 +2768,22 @@ MonoBehaviour:
   mineHarvest: {fileID: 1142553275}
   hangar: {fileID: 844223167}
   labs: {fileID: 1311115353}
+  questCompletedAnimator: {fileID: 1561966150}
+  questObserver: {fileID: 588007194}
   fightCamera: {fileID: 50939843}
   noFundsCheck: 1
+--- !u!114 &588007194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 588007190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48a72d6322e204af997b9165597ef7e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &625510180
 GameObject:
   m_ObjectHideFlags: 0
@@ -6744,9 +6759,11 @@ MonoBehaviour:
   labQuestInfos:
   - questNumber: 1
     name: Take Them Down
-    description: Protect the base from 10 asteroids. - NOT WORKING YET.
+    description: Destroy 10 asteroids.
     mineralReward: 10
     asteroidReward: 15
+    asteroidsToDestroy: 10
+    complexQuest: 0
   labQuestList: {fileID: 1234474744}
   questButton: {fileID: 6930741895899869335, guid: 07b05be07b2884e04a72c2a988ee0e3e, type: 3}
 --- !u!1 &1421812391
@@ -8718,8 +8735,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1687258581}
-  m_LocalRotation: {x: 0.13461944, y: 0, z: 0, w: 0.9908974}
-  m_LocalPosition: {x: 0, y: 6.8740005, z: -6.147001}
+  m_LocalRotation: {x: -0.10992536, y: 0, z: 0, w: 0.9939399}
+  m_LocalPosition: {x: 0, y: 7.1550007, z: -4.9700007}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

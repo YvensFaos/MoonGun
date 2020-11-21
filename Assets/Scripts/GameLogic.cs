@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using Cinemachine;
+﻿using Cinemachine;
 using DG.Tweening;
 using UnityEngine;
 
@@ -17,6 +14,8 @@ public class GameLogic : MonoBehaviour
     public Hangar HangarControl => hangar;
 
     public Labs LabsControl => labs;
+
+    public QuestObserver QuestControl => questObserver;
 
     public int AsteroidsCollected
     {
@@ -58,6 +57,8 @@ public class GameLogic : MonoBehaviour
     [SerializeField] private MineHarvest mineHarvest;
     [SerializeField] private Hangar hangar;
     [SerializeField] private Labs labs;
+    [SerializeField] private Animator questCompletedAnimator;
+    [SerializeField] private QuestObserver questObserver;
     
     [Header("Camera Elements")]
     [SerializeField] private CinemachineVirtualCamera fightCamera;
@@ -151,5 +152,12 @@ public class GameLogic : MonoBehaviour
     public void ChangeWeapon(TurretCannonType type)
     {
         weaponTextPanel.ChangeTextTo(type);
+    }
+
+    public void QuestCompleted(QuestInfo questInfo)
+    {
+        questCompletedAnimator.SetTrigger("QuestCompleted");
+        IncrementAsteroids(questInfo.asteroidReward);
+        IncrementMinerals(questInfo.mineralReward);
     }
 }

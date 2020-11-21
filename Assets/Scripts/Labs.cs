@@ -35,10 +35,6 @@ public class Labs : Upgradable
 
     public void TakeQuest(QuestInfo info)
     {
-        // switch (info.questNumber)
-        // {
-        //     
-        //     default: break;
-        // }
+        GameLogic.Instance.QuestControl.ActivateQuest(info);
     }
 }

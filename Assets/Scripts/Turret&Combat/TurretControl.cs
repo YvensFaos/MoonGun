@@ -12,7 +12,6 @@ public class TurretControl : MonoBehaviour
     [SerializeField] private Image cooldownImage;
     [SerializeField] private Camera turretCamera;
     
-
     [Header("Turret Properties")] 
     [Range(1.0f, 150.0f)]
     [SerializeField] private float rotationRange = 70.0f;

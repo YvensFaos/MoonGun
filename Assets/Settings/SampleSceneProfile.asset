@@ -20,7 +20,7 @@ MonoBehaviour:
     min: 0
   intensity:
     m_OverrideState: 1
-    m_Value: 0.51
+    m_Value: 0.31
     min: 0
   scatter:
     m_OverrideState: 0
@@ -41,11 +41,11 @@ MonoBehaviour:
     m_OverrideState: 0
     m_Value: 0
   dirtTexture:
-    m_OverrideState: 0
-    m_Value: {fileID: 0}
+    m_OverrideState: 1
+    m_Value: {fileID: 2800000, guid: b20599ad40ebd4c2fb583b71faa3e54b, type: 3}
   dirtIntensity:
-    m_OverrideState: 0
-    m_Value: 0
+    m_OverrideState: 1
+    m_Value: 0.21
     min: 0
 --- !u!114 &-7656182500067041126
 MonoBehaviour:

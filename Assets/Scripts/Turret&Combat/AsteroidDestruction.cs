@@ -57,6 +57,8 @@ public class AsteroidDestruction : MonoBehaviour
          }
          GameLogic.Instance.ShakeFightCamera(shakeForce, shakeTime);
          GameLogic.Instance.AsteroidDestroyed(asteroidsValue, mineralsValue);
+         GameLogic.Instance.QuestControl.NotifyAsteroidDestroyed();
+         
          _rigidbody.velocity = Vector3.zero;
          
          DOTween.To(() => _material.GetFloat(uniformName), 

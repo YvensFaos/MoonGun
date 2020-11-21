@@ -22,5 +22,6 @@ public class QuestButton : MonoBehaviour
     public void ClickMe()
     {
         GameLogic.Instance.LabsControl.TakeQuest(_questInfo);
+        Destroy(gameObject);
     }
 }
