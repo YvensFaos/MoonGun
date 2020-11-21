@@ -1,4 +1,5 @@
 ﻿using DG.Tweening;
+using Lean.Pool;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -97,8 +98,7 @@ public class TurretControl : MonoBehaviour
         var vector = tipPosition - turretAimBase.transform.position;
         vector.Normalize();
 
-        var bullet = Instantiate(bulletGameObject, tipPosition,
-            Quaternion.identity);
+        var bullet = LeanPool.Spawn(bulletGameObject, tipPosition, Quaternion.identity);
         bullet.transform.localScale = projectileScaling;
         bullet.AddForce(vector * projectileForce, ForceMode.Impulse);
         Destroy(bullet.gameObject, projectileLife);

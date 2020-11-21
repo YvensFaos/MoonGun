@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Lean.Pool;
 using UnityEngine;
 
 [RequireComponent(typeof(Collider))]
@@ -63,11 +64,11 @@ public class AsteroidSpawner : MonoBehaviour
         {
             if (chance < asteroid.spawnChance + chanceAcc)
             {
-                var asteroidObject = Instantiate(asteroid.asteroidPrefab, new Vector3(Random.Range(minBounds.x, maxBounds.x), 
-                        Random.Range(minBounds.y, maxBounds.y), Random.Range(minBounds.z, maxBounds.z)),
+                var asteroidObject = LeanPool.Spawn(asteroid.asteroidPrefab, 
+                    new Vector3(Random.Range(minBounds.x, maxBounds.x),Random.Range(minBounds.y, maxBounds.y), Random.Range(minBounds.z, maxBounds.z)),
                     Quaternion.identity);
                 asteroidObject.AddForce(Vector3.down * asteroid.asteroidFallVelocity, ForceMode.Impulse);
-                Destroy(asteroidObject.gameObject, asteroid.asteroidLifeDuration);
+                LeanPool.Despawn(asteroidObject.gameObject, asteroid.asteroidLifeDuration);
                 return;
             }
 

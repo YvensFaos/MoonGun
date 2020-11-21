@@ -1,4 +1,6 @@
-﻿using DG.Tweening;
+﻿using System;
+using DG.Tweening;
+using Lean.Pool;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
@@ -18,6 +20,7 @@ public class AsteroidDestruction : MonoBehaviour
    [SerializeField] private int mineralsValue;
    [SerializeField] private float shakeForce = 2.0f;
    [SerializeField] private float shakeTime = 0.5f;
+   [SerializeField] private float lightEffectDefault = -2.0f;
    [SerializeField] private float lightEffectPower = -2.0f;
    [SerializeField] private float lightEffectTimer = 0.5f;
    
@@ -26,6 +29,11 @@ public class AsteroidDestruction : MonoBehaviour
       _renderer = GetComponent<Renderer>();
       _rigidbody = GetComponent<Rigidbody>();
       _material = _renderer.material;
+   }
+
+   private void OnEnable()
+   {
+      _material.SetFloat(uniformName, lightEffectDefault);
    }
 
    private void OnCollisionEnter(Collision other)
@@ -44,19 +52,20 @@ public class AsteroidDestruction : MonoBehaviour
       {
          if (particleSystem != null)
          {
-            particleSystem.Play();
-            Destroy(particleSystem.gameObject, 0.5f);
+            var particles= LeanPool.Spawn(particleSystem, transform.position, Quaternion.identity);
+            LeanPool.Despawn(particles, 0.5f);
          }
          GameLogic.Instance.ShakeFightCamera(shakeForce, shakeTime);
          GameLogic.Instance.AsteroidDestroyed(asteroidsValue, mineralsValue);
          _rigidbody.velocity = Vector3.zero;
+         
          DOTween.To(() => _material.GetFloat(uniformName), 
             value => _material.SetFloat(uniformName, value), 
             lightEffectPower, lightEffectTimer).OnComplete(
             () =>
             {
                particleSystem.transform.parent = null;
-               Destroy(gameObject, 0.2f);
+               LeanPool.Despawn(gameObject, 0.2f);
             }); 
       }
    }
