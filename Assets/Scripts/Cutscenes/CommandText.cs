@@ -20,6 +20,6 @@ public class CommandText : MonoBehaviour
     public void SetText(string text)
     {
         ClearText();
-        textToAnimate.DOText(text, animateTimer, true, ScrambleMode.Lowercase);
+        textToAnimate.DOText(text, animateTimer);
     }
 }
