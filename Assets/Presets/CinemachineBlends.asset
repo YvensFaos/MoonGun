@@ -16,7 +16,7 @@ MonoBehaviour:
   - m_From: CM IntroCamera
     m_To: CM BaseCamera
     m_Blend:
-      m_Style: 2
+      m_Style: 1
       m_Time: 4
       m_CustomCurve:
         serializedVersion: 2
