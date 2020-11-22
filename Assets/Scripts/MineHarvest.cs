@@ -15,9 +15,13 @@ public class MineHarvest : Upgradable
     private void Awake()
     {
         _harvestCorountine = HarvestCorountine();
-        StartCoroutine(_harvestCorountine);
     }
 
+    public void StartMining()
+    {
+        StartCoroutine(_harvestCorountine);
+    }
+    
     private IEnumerator HarvestCorountine()
     {
         while (true)

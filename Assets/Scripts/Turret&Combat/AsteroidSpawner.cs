@@ -8,9 +8,10 @@ using UnityEngine;
 public class AsteroidSpawner : MonoBehaviour
 {
     [Header("Spawner Properties")]
-    [SerializeField] private  Collider spawnerCollider;
-    [SerializeField] private  Vector3 minBounds;
-    [SerializeField] private  Vector3 maxBounds;
+    [SerializeField] private Collider spawnerCollider;
+    [SerializeField] private Vector3 minBounds;
+    [SerializeField] private Vector3 maxBounds;
+    [SerializeField] private bool startSpawning;
 
     [Header("Asteroids to Spawn")]
     [SerializeField] private  List<AsteroidToSpawn> asteroids;
@@ -31,7 +32,10 @@ public class AsteroidSpawner : MonoBehaviour
     private void Start()
     {
         _spawner = SpawnAsteroids();
-        StartCoroutine(_spawner);
+        if (startSpawning)
+        {
+            StartCoroutine(_spawner);    
+        }
 
         asteroids.Sort();
         _totalChance = asteroids.Sum(asteroid => asteroid.spawnChance);

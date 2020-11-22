@@ -1,5 +1,4 @@
-﻿using System;
-using DG.Tweening;
+﻿using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
@@ -15,7 +14,7 @@ public class FocalLensController : MonoBehaviour
     private void Awake()
     {
         _volumeProfile = postProcessVolume.profile;
-        _volumeProfile.TryGet<DepthOfField>(out _depthOfField);
+        _volumeProfile.TryGet(out _depthOfField);
     }
 
     private void Start()
