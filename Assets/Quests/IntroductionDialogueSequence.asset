@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e71a88f32b374103a35d24632b446335, type: 3}
+  m_Name: IntroductionDialogueSequence
+  m_EditorClassIdentifier: 
+  dialogueSequence:
+  - 'Hello! You must be the new captain.
+
+    Welcome to S/2009 S1, or, how some
+    of us call it: the "should have never been a base" moon.'
+  - "As you should know from the briefing, this flying piece of rock is full of interesting
+    minerals. It is as rich of Phlebotinum as it is target of an unstopable asteroid
+    rain. Oh boy. We do have some falling stars here.\t"
+  - 'But anyway, where are my manners. I am Titan, your loyal servant. I was told
+    to show you our lovely accomodations and point you to where you will spend most
+    of your time: the turret.
+
+'
+  - The turret is our main mechanism of protection. But fear not, for now, it is
+    mostly a harvesting mechanism than a proper defense. Our shields should hold
+    the impact of any asteroid, so do not bother.
+  - The turret's cannon can absorb some of the asteroids material on impact, and
+    those can be used for further technological advanced. Oh, sweet Phlebotinum.
+  - Well, I think that is it. If you have any questions, please, feel free to just
+    click around and I hope you have a lovely stay in the turret. Not like the previous
+    captain that mostly slept through the meteor showers.

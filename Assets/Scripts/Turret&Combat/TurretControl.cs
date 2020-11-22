@@ -18,7 +18,7 @@ public class TurretControl : MonoBehaviour
     [SerializeField] private TurretCannonType cannonType = TurretCannonType.CANNON;
     
     private bool _unlockedLaser; //false by default
-    private bool _canMove = false;
+    private bool _canMove; //false by default
     private bool _canShoot = true;
     
     [Header("Projectile Properties")]
