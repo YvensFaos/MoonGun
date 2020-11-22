@@ -35,7 +35,23 @@ public class TurretControl : MonoBehaviour
     
     [Header("Debug Properties")]
     [SerializeField] private float rayDebugLength = 0.22f;
-    
+
+    public float RotationRange => rotationRange;
+
+    public float ProjectileForce => projectileForce;
+
+    public float ProjectileLife => projectileLife;
+
+    public float ProjectileScale => projectileScaling.x;
+
+    public float CannonCoolDownTimer => cannonCoolDownTimer;
+
+    public bool UnlockedLaser => _unlockedLaser;
+
+    public float LaserConsuption => laserConsuption;
+
+    public float LaserCooldown => laserCooldown;
+
     void Update()
     {
         if (_canMove)
@@ -55,7 +71,7 @@ public class TurretControl : MonoBehaviour
 
         var eulerAngles = turretRotation.transform.rotation.eulerAngles;
         eulerAngles.z = Mathf.Atan2((screenPos.y - position.y), (screenPos.x - position.x)) * Mathf.Rad2Deg - 90.0f;
-        eulerAngles.z = Mathf.Clamp(eulerAngles.z, -rotationRange, rotationRange);
+        eulerAngles.z = Mathf.Clamp(eulerAngles.z, -RotationRange, RotationRange);
         turretRotation.transform.rotation = Quaternion.Euler(eulerAngles);
     }
 
@@ -75,7 +91,7 @@ public class TurretControl : MonoBehaviour
 
     private void SwitchWeapon()
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift) && _unlockedLaser)
+        if (Input.GetKeyDown(KeyCode.LeftShift) && UnlockedLaser)
         {
             switch (cannonType)
             {
@@ -99,12 +115,12 @@ public class TurretControl : MonoBehaviour
 
         var bullet = LeanPool.Spawn(bulletGameObject, tipPosition, Quaternion.identity);
         bullet.transform.localScale = projectileScaling;
-        bullet.AddForce(vector * projectileForce, ForceMode.Impulse);
-        Destroy(bullet.gameObject, projectileLife);
+        bullet.AddForce(vector * ProjectileForce, ForceMode.Impulse);
+        Destroy(bullet.gameObject, ProjectileLife);
 
         _canShoot = false;
         cooldownImage.fillAmount = 0.0f;
-        cooldownImage.DOFillAmount(1.0f, cannonCoolDownTimer).OnComplete(CanShootAgain);
+        cooldownImage.DOFillAmount(1.0f, CannonCoolDownTimer).OnComplete(CanShootAgain);
     }
 
     private void LaserShoot()
@@ -113,10 +129,10 @@ public class TurretControl : MonoBehaviour
         laserObject.SetActive(true);
         _canShoot = false;
         cooldownImage.fillAmount = 1.0f;
-        cooldownImage.DOFillAmount(0.0f, laserConsuption).OnComplete(() =>
+        cooldownImage.DOFillAmount(0.0f, LaserConsuption).OnComplete(() =>
         {
             laserObject.SetActive(false);    
-            cooldownImage.DOFillAmount(1.0f, laserCooldown).OnComplete(CanShootAgain);
+            cooldownImage.DOFillAmount(1.0f, LaserCooldown).OnComplete(CanShootAgain);
         });
     }
 
