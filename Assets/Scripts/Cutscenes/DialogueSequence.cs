@@ -4,7 +4,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "DialogueSequence", menuName = "Dialogue Sequence", order = 2)]
 public class DialogueSequence : ScriptableObject
 {
-    [TextArea]
+    [TextArea(1, 10)]
     [SerializeField] private List<string> dialogueSequence;
 
     public string this[int key]

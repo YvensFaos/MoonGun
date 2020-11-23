@@ -13,23 +13,21 @@ MonoBehaviour:
   m_Name: IntroductionDialogueSequence
   m_EditorClassIdentifier: 
   dialogueSequence:
-  - 'Hello! You must be the new captain.
-
-    Welcome to S/2009 S1, or, how some
-    of us call it: the "should have never been a base" moon.'
-  - "As you should know from the briefing, this flying piece of rock is full of interesting
-    minerals. It is as rich of Phlebotinum as it is target of an unstopable asteroid
-    rain. Oh boy. We do have some falling stars here.\t"
-  - 'But anyway, where are my manners. I am Titan, your loyal servant. I was told
-    to show you our lovely accomodations and point you to where you will spend most
-    of your time: the turret.
-
-'
-  - The turret is our main mechanism of protection. But fear not, for now, it is
-    mostly a harvesting mechanism than a proper defense. Our shields should hold
-    the impact of any asteroid, so do not bother.
-  - The turret's cannon can absorb some of the asteroids material on impact, and
-    those can be used for further technological advanced. Oh, sweet Phlebotinum.
-  - Well, I think that is it. If you have any questions, please, feel free to just
-    click around and I hope you have a lovely stay in the turret. Not like the previous
-    captain that mostly slept through the meteor showers.
+  - Hello! You must be the new captain.
+  - 'Welcome to S/2009 S1, or, how some of us call it: the "should have never been
+    a base" moon.'
+  - As you know from the briefing, this place is a flying golden nugget. Or better
+    said, a flying Phlebotinum nugget.
+  - It is as rich in ores and minerals as asteroids shower it. Oh boy, we have some
+    falling stars here!
+  - Oh, sorry! I forgot to introduce myself. I am Titan, at your service.
+  - 'I am here to show you your accommodations and point of command: the turret!'
+  - The turret is our primary mechanism of protection, and it is also a powerful
+    harvesting tool. Its blasters absorb asteroids' material on impact.
+  - But do not worry too much. We have shields to cover us for any scrap that lands
+    on the surface. We are safe. For now. Haha.
+  - Oh, sweet Phlebotinum.
+  - Well, I think that is it. If you have any questions, please, click away. It is
+    free of charge. Literally.
+  - I hope you last longer than the previous captain and do not sleep during a meteor
+    shower. They are magnificent as it is our lovely Phebotinum.

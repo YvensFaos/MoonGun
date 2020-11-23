@@ -43,6 +43,7 @@ public class CommandText : MonoBehaviour
         }
         else
         {
+            Debug.Log("Finished");
             _finished = true;
         }
     }
