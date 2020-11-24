@@ -5,19 +5,20 @@ using UnityEngine.UI;
 public class AudioSlider : MonoBehaviour
 {
     [SerializeField] private AudioSource source;
-
+    [SerializeField] private Slider slider;
+    
     private void Awake()
     {
         source = GetComponent<AudioSource>();
     }
 
+    private void Start()
+    {
+        slider.value = source.volume;
+    }
+
     public void ChangeVolume(float value)
     {
         source.volume = value;
-    }
-    
-    public void ChangeVolumeSlider(Slider slider)
-    {
-        ChangeVolume(slider.value);
     }
 }
