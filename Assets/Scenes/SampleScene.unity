@@ -10263,7 +10263,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1564715645
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10782,7 +10782,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1628279422
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11235,17 +11235,21 @@ MonoBehaviour:
   asteroids:
   - asteroidPrefab: {fileID: 314202622468952523, guid: dc48859486a9247358ebc5734fecd814, type: 3}
     asteroidLifeDuration: 4
-    spawnChance: 80
+    spawnChance: 110
     asteroidFallVelocity: 1
   - asteroidPrefab: {fileID: 8266432921366845768, guid: 809115f9686af465f8ba6cadbcb09b5e, type: 3}
     asteroidLifeDuration: 3
-    spawnChance: 10
+    spawnChance: 5
     asteroidFallVelocity: 2
   - asteroidPrefab: {fileID: 7975518486666961852, guid: 187130a3f85194e728681ee0a6c6d655, type: 3}
     asteroidLifeDuration: 7
-    spawnChance: 5
+    spawnChance: 2
     asteroidFallVelocity: 0.6
-  timer: 1
+  - asteroidPrefab: {fileID: 4665051758673517592, guid: fd9811f16fb6f4a948598e0bed8ab9df, type: 3}
+    asteroidLifeDuration: 7
+    spawnChance: 1
+    asteroidFallVelocity: 4
+  timer: 1.2
   debugUpdatePosition: 0
 --- !u!65 &1684080915
 BoxCollider:
@@ -26017,7 +26021,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5476488779129729073, guid: fd9811f16fb6f4a948598e0bed8ab9df, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd9811f16fb6f4a948598e0bed8ab9df, type: 3}
