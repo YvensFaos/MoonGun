@@ -1,5 +1,4 @@
-﻿using System;
-using DG.Tweening;
+﻿using DG.Tweening;
 using Lean.Pool;
 using UnityEngine;
 
@@ -23,6 +22,9 @@ public class AsteroidDestruction : MonoBehaviour
    [SerializeField] private float lightEffectDefault = -2.0f;
    [SerializeField] private float lightEffectPower = -2.0f;
    [SerializeField] private float lightEffectTimer = 0.5f;
+
+   [SerializeField] private AsteroidType type;
+   [SerializeField] private AsteroidEffects effect;
    
    private void Awake()
    {
@@ -56,19 +58,47 @@ public class AsteroidDestruction : MonoBehaviour
             LeanPool.Despawn(particles, 0.5f);
          }
          GameLogic.Instance.ShakeFightCamera(shakeForce, shakeTime);
-         GameLogic.Instance.AsteroidDestroyed(asteroidsValue, mineralsValue);
+         GameLogic.Instance.AsteroidDestroyed(type, asteroidsValue, mineralsValue);
+         if (effect != AsteroidEffects.NO_EFFECT)
+         {
+            GameLogic.Instance.AsteroidEffect(effect);
+         }
          GameLogic.Instance.QuestControl.NotifyAsteroidDestroyed();
          
-         _rigidbody.velocity = Vector3.zero;
-         
-         DOTween.To(() => _material.GetFloat(uniformName), 
-            value => _material.SetFloat(uniformName, value), 
-            lightEffectPower, lightEffectTimer).OnComplete(
-            () =>
-            {
-               particleSystem.transform.parent = null;
-               LeanPool.Despawn(gameObject, 0.2f);
-            }); 
+         StopAndAnimateAsteroidDestruction();
       }
+      else if (collidingGameObject.CompareTag("Shield"))
+      {
+         if (effect == AsteroidEffects.DAMAGE)
+         {
+            GameLogic.Instance.DamageShield(this);
+         }
+         else
+         {
+            GameLogic.Instance.AnimateShield();
+         }
+         StopAndAnimateAsteroidDestruction(false);
+      }
+   }
+
+   private void StopAndAnimateAsteroidDestruction(bool wasHit = true)
+   {
+      if (wasHit)
+      {
+         _rigidbody.velocity = Vector3.zero;   
+      }
+      else
+      {
+         _rigidbody.velocity = _rigidbody.velocity * 0.1f;
+      }
+
+      DOTween.To(() => _material.GetFloat(uniformName),
+         value => _material.SetFloat(uniformName, value),
+         lightEffectPower, lightEffectTimer).OnComplete(
+         () =>
+         {
+            particleSystem.transform.parent = null;
+            LeanPool.Despawn(gameObject, 0.3f);
+         });
    }
 }

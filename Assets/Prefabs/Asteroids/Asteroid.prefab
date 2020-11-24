@@ -134,6 +134,8 @@ MonoBehaviour:
   lightEffectDefault: 5.25
   lightEffectPower: -2
   lightEffectTimer: 0.5
+  type: 2
+  effect: 0
 --- !u!114 &9043078052336759631
 MonoBehaviour:
   m_ObjectHideFlags: 0

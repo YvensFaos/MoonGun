@@ -17,11 +17,11 @@ public class QuestObserver : MonoBehaviour
         _countDownAsteroid = questInfo.asteroidsToDestroy;
     }
 
-    public void NotifyAsteroidDestroyed()
+    public void NotifyAsteroidDestroyed(AsteroidType type = AsteroidType.REGULAR)
     {
         if (_hasActiveQuest)
         {
-            if (!_currentQuestInfo.complexQuest)
+            if (!_currentQuestInfo.complexQuest && _currentQuestInfo.asteroidType == type)
             {
                 if (--_countDownAsteroid <= 0)
                 {

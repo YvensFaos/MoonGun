@@ -98,10 +98,25 @@ public class GameLogic : MonoBehaviour
         asteroidSpawner.ToggleSpawner(toggle);
     }
     
-    public void AsteroidDestroyed(int asteroids = 1, int minerals = 0)
+    public void AsteroidDestroyed(AsteroidType type = AsteroidType.REGULAR, int asteroids = 1, int minerals = 0)
     {
         IncrementAsteroids(asteroids);
         IncrementMinerals(minerals);
+    }
+
+    public void AsteroidEffect(AsteroidEffects effect)
+    {
+        
+    }
+
+    public void DamageShield(AsteroidDestruction asteroid)
+    {
+        
+    }
+
+    public void AnimateShield()
+    {
+        
     }
 
     public bool CheckFunds(int asteroidCost, int mineralCost)

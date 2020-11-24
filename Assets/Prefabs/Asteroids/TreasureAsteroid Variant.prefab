@@ -87,9 +87,17 @@ PrefabInstance:
       propertyPath: asteroidsValue
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6251551586340155989, guid: 809115f9686af465f8ba6cadbcb09b5e, type: 3}
+      propertyPath: type
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6251551586340155989, guid: 809115f9686af465f8ba6cadbcb09b5e, type: 3}
+      propertyPath: effect
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9080865077863724385, guid: 809115f9686af465f8ba6cadbcb09b5e, type: 3}
       propertyPath: m_Name
-      value: TreasureAsteroid
+      value: TreasureAsteroid Variant
       objectReference: {fileID: 0}
     - target: {fileID: 9080865077863724385, guid: 809115f9686af465f8ba6cadbcb09b5e, type: 3}
       propertyPath: m_IsActive

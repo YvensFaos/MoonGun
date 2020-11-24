@@ -12,6 +12,8 @@ public struct QuestInfo : IComparable
     public int asteroidsToDestroy;
     public bool complexQuest;
     public int nextQuestToUnlock;
+
+    public AsteroidType asteroidType;
     
     public int CompareTo(object obj)
     {

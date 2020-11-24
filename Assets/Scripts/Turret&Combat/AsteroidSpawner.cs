@@ -72,7 +72,7 @@ public class AsteroidSpawner : MonoBehaviour
                     new Vector3(Random.Range(minBounds.x, maxBounds.x),Random.Range(minBounds.y, maxBounds.y), Random.Range(minBounds.z, maxBounds.z)),
                     Quaternion.identity);
                 asteroidObject.AddForce(Vector3.down * asteroid.asteroidFallVelocity, ForceMode.Impulse);
-                LeanPool.Despawn(asteroidObject.gameObject, asteroid.asteroidLifeDuration);
+                // LeanPool.Despawn(asteroidObject.gameObject, asteroid.asteroidLifeDuration);
                 return;
             }
 
