@@ -17,10 +17,12 @@ public class RaycastActivate : MonoBehaviour
     private Collider _collider;
     private bool _justHovered;
     private bool _readyToHover;
+    private int _layerMask;
 
     private void Awake()
     {
         _collider = GetComponent<Collider>();
+        _layerMask = LayerMask.GetMask("Facility and Raycasts");
     }
 
     private void Start()
@@ -35,7 +37,7 @@ public class RaycastActivate : MonoBehaviour
     {
         Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
-        if (Physics.Raycast (ray, out hit, 100.0f)) 
+        if (Physics.Raycast (ray, out hit, 100.0f, _layerMask)) 
         {
             if (hit.collider.Equals(_collider) && GameLogic.Instance.ClickEnable)
             {
