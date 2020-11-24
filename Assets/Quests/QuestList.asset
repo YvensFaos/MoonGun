@@ -21,6 +21,7 @@ MonoBehaviour:
     asteroidsToDestroy: 20
     complexQuest: 0
     nextQuestToUnlock: 3
+    asteroidType: 2
   - questNumber: 3
     name: No, I mean. DESTROY!
     description: Destroy 50 asteroids.
@@ -29,6 +30,7 @@ MonoBehaviour:
     asteroidsToDestroy: 50
     complexQuest: 0
     nextQuestToUnlock: 4
+    asteroidType: 2
   - questNumber: 4
     name: WREAK HAVOK!
     description: For real. Destroy 150 asteroids.
@@ -36,4 +38,23 @@ MonoBehaviour:
     asteroidReward: 100
     asteroidsToDestroy: 150
     complexQuest: 0
+    nextQuestToUnlock: 5
+    asteroidType: 2
+  - questNumber: 5
+    name: Against the Blue Asteroid Group.
+    description: Destroy 15 Blue Asteroids.
+    mineralReward: 150
+    asteroidReward: 150
+    asteroidsToDestroy: 15
+    complexQuest: 0
+    nextQuestToUnlock: 6
+    asteroidType: 0
+  - questNumber: 6
+    name: WREAK HAVOK!
+    description: For real. Destroy 150 asteroids.
+    mineralReward: 100
+    asteroidReward: 100
+    asteroidsToDestroy: 150
+    complexQuest: 0
     nextQuestToUnlock: 0
+    asteroidType: 2

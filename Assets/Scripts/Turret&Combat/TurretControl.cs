@@ -158,6 +158,11 @@ public class TurretControl : MonoBehaviour
         }
     }
 
+    public void UpgradeRotationRange(float range)
+    {
+        rotationRange = range;
+    }
+
     public void UpgradeProjectileForce(float newForce)
     {
         projectileForce = newForce;

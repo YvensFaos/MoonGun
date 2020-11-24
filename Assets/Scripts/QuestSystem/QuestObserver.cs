@@ -17,14 +17,15 @@ public class QuestObserver : MonoBehaviour
         _countDownAsteroid = questInfo.asteroidsToDestroy;
     }
 
-    public void NotifyAsteroidDestroyed(AsteroidType type = AsteroidType.REGULAR)
+    public void NotifyAsteroidDestroyed(AsteroidType type)
     {
         if (_hasActiveQuest)
         {
-            if (!_currentQuestInfo.complexQuest && _currentQuestInfo.asteroidType == type)
+            if (!_currentQuestInfo.complexQuest)
             {
-                if (--_countDownAsteroid <= 0)
+                if ((_currentQuestInfo.asteroidType == type || _currentQuestInfo.asteroidType == AsteroidType.ANY_TYPE) && _countDownAsteroid >= 0)
                 {
+                    --_countDownAsteroid;
                     _hasActiveQuest = false;
                     GameLogic.Instance.QuestCompleted(_currentQuestInfo);
                     UnlockNextQuest(_currentQuestInfo);

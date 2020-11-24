@@ -17,6 +17,8 @@ public class GameLogic : MonoBehaviour
 
     public QuestObserver QuestControl => questObserver;
 
+    public LootboxSystem LootboxControl => lootboxSystem;
+    
     public int AsteroidsCollected
     {
         get => asteroidsCollected;
@@ -46,6 +48,11 @@ public class GameLogic : MonoBehaviour
     [Header("Game Properties")]
     [SerializeField] private int asteroidsCollected = 0;
     [SerializeField] private int mineralsCollected = 0;
+    
+    [SerializeField, Range(0.0f, 1.0f)] 
+    private float asteroidLightIntensity = 1.0f;
+
+    public float LightIntensity => asteroidLightIntensity;
 
     [Space(5)]
     
@@ -59,6 +66,7 @@ public class GameLogic : MonoBehaviour
     [SerializeField] private Labs labs;
     [SerializeField] private Animator questCompletedAnimator;
     [SerializeField] private QuestObserver questObserver;
+    [SerializeField] private LootboxSystem lootboxSystem;
     
     [Header("Camera Elements")]
     [SerializeField] private CinemachineVirtualCamera fightCamera;
@@ -174,5 +182,10 @@ public class GameLogic : MonoBehaviour
         questCompletedAnimator.SetTrigger("QuestCompleted");
         IncrementAsteroids(questInfo.asteroidReward);
         IncrementMinerals(questInfo.mineralReward);
+    }
+
+    public void ChangeAsteroidLightIntensity(float intensity)
+    {
+        asteroidLightIntensity = Mathf.Clamp01(intensity);
     }
 }

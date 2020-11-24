@@ -25,6 +25,8 @@ public class AsteroidDestruction : MonoBehaviour
 
    [SerializeField] private AsteroidType type;
    [SerializeField] private AsteroidEffects effect;
+
+   private float _lightIntensity;
    
    private void Awake()
    {
@@ -36,6 +38,7 @@ public class AsteroidDestruction : MonoBehaviour
    private void OnEnable()
    {
       _material.SetFloat(uniformName, lightEffectDefault);
+      _lightIntensity = GameLogic.Instance.LightIntensity;
    }
 
    private void OnCollisionEnter(Collision other)
@@ -63,7 +66,7 @@ public class AsteroidDestruction : MonoBehaviour
          {
             GameLogic.Instance.AsteroidEffect(effect);
          }
-         GameLogic.Instance.QuestControl.NotifyAsteroidDestroyed();
+         GameLogic.Instance.QuestControl.NotifyAsteroidDestroyed(type);
          
          StopAndAnimateAsteroidDestruction();
       }
@@ -94,7 +97,7 @@ public class AsteroidDestruction : MonoBehaviour
 
       DOTween.To(() => _material.GetFloat(uniformName),
          value => _material.SetFloat(uniformName, value),
-         lightEffectPower, lightEffectTimer).OnComplete(
+         _lightIntensity * lightEffectPower, lightEffectTimer).OnComplete(
          () =>
          {
             particleSystem.transform.parent = null;

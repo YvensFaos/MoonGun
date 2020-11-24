@@ -4,6 +4,8 @@ public class Hangar : Upgradable
 {
     public void UnlockUpgrade(UpgradeInfo info)
     {
+        //UpgradeRotationRange
+        
         //Tier 1
         if (info.name.Equals("Faster Shoot"))
         {

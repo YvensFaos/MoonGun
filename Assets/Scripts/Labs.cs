@@ -1,11 +1,10 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class Labs : Upgradable
 {
-    [Header("Lab Quests")]
-    [SerializeField] private List<QuestInfo> labQuestInfos;
+    [Header("Lab Quests")] 
+    [SerializeField] private QuestList initialQuest;
     [SerializeField] private VerticalLayoutGroup labQuestList;
     [SerializeField] private QuestButton questButton;
 
@@ -13,7 +12,7 @@ public class Labs : Upgradable
     {
         base.Start();
         
-        labQuestInfos.ForEach(info => { AddQuestToList(info); });
+        initialQuest.quests.ForEach(info => { AddQuestToList(info); });
     }
 
     public void UnlockUpgrade(UpgradeInfo info)
