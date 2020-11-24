@@ -14,20 +14,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueSequence:
   - Hello! You must be the new captain.
-  - 'Welcome to S/2009 S1, or, how some of us call it: the "should have never been
+  - 'Welcome to S/2009 S1, or, as some of us call it: the "should have never been
     a base" moon.'
   - As you know from the briefing, this place is a flying golden nugget. Or better
     said, a flying Phlebotinum nugget.
-  - It is as rich in ores and minerals as asteroids shower it. Oh boy, we have some
-    falling stars here!
+  - It is as rich in ores and minerals as it is showered by asteroids. Oh boy, do
+    we have some falling stars here!
   - Oh, sorry! I forgot to introduce myself. I am Titan, at your service.
-  - 'I am here to show you your accommodations and point of command: the turret!'
+  - 'I am here to show you your accommodations and post: the turret!'
   - The turret is our primary mechanism of protection, and it is also a powerful
-    harvesting tool. Its blasters absorb asteroids' material on impact.
-  - But do not worry too much. We have shields to cover us for any scrap that lands
-    on the surface. We are safe. For now. Haha.
+    harvesting tool. The turret's blasters absorb asteroids' material on impact and
+    teleport them to our base.
+  - Do not worry if some meteors get past your shootings. Our shilds are up and loaded
+    to cover us from any debris that lands on the surface. We are safe. For now.
+    Haha.
   - Oh, sweet Phlebotinum.
-  - Well, I think that is it. If you have any questions, please, click away. It is
+  - Well, I think that's it. If you have any questions, please, click away. It is
     free of charge. Literally.
   - I hope you last longer than the previous captain and do not sleep during a meteor
-    shower. They are magnificent as it is our lovely Phebotinum.
+    shower. They are magnificent.
+  - As it is our lovely Phebotinum.
