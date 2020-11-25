@@ -4,15 +4,18 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(Renderer))]
+[RequireComponent(typeof(AudioSource))]
 public class AsteroidDestruction : MonoBehaviour
 {
    private Rigidbody _rigidbody;
    private Renderer _renderer;
    private Material _material;
+   private AudioSource _audioSource;
    
    [SerializeField] private ParticleSystem particleSystem;
 
    private readonly string uniformName = "LightPower";
+   private readonly string transparencyName = "Transparency";
 
    [Header("Asteroid Properties")] 
    [SerializeField] private int asteroidsValue;
@@ -22,6 +25,8 @@ public class AsteroidDestruction : MonoBehaviour
    [SerializeField] private float lightEffectDefault = -2.0f;
    [SerializeField] private float lightEffectPower = -2.0f;
    [SerializeField] private float lightEffectTimer = 0.5f;
+   [SerializeField] private float despawnTimer = 0.5f;
+   
 
    [SerializeField] private AsteroidType type;
    [SerializeField] private AsteroidEffects effect;
@@ -32,12 +37,14 @@ public class AsteroidDestruction : MonoBehaviour
    {
       _renderer = GetComponent<Renderer>();
       _rigidbody = GetComponent<Rigidbody>();
+      _audioSource = GetComponent<AudioSource>();
       _material = _renderer.material;
    }
 
    private void OnEnable()
    {
       _material.SetFloat(uniformName, lightEffectDefault);
+      _material.SetFloat(transparencyName, 1.0f);
       _lightIntensity = GameLogic.Instance.LightIntensity;
    }
 
@@ -55,11 +62,6 @@ public class AsteroidDestruction : MonoBehaviour
    {
       if (collidingGameObject.CompareTag("Bullet"))
       {
-         if (particleSystem != null)
-         {
-            var particles= LeanPool.Spawn(particleSystem, transform.position, Quaternion.identity);
-            LeanPool.Despawn(particles, 0.5f);
-         }
          GameLogic.Instance.ShakeFightCamera(shakeForce, shakeTime);
          GameLogic.Instance.AsteroidDestroyed(type, asteroidsValue, mineralsValue);
          if (effect != AsteroidEffects.NO_EFFECT)
@@ -86,6 +88,13 @@ public class AsteroidDestruction : MonoBehaviour
 
    private void StopAndAnimateAsteroidDestruction(bool wasHit = true)
    {
+      _audioSource.Play();
+      if (particleSystem != null)
+      {
+         var particles= LeanPool.Spawn(particleSystem, transform.position, Quaternion.identity);
+         LeanPool.Despawn(particles, 0.5f);
+      }
+      
       if (wasHit)
       {
          _rigidbody.velocity = Vector3.zero;   
@@ -100,8 +109,10 @@ public class AsteroidDestruction : MonoBehaviour
          _lightIntensity * lightEffectPower, lightEffectTimer).OnComplete(
          () =>
          {
-            particleSystem.transform.parent = null;
-            LeanPool.Despawn(gameObject, 0.3f);
+            DOTween.To(() => _material.GetFloat(transparencyName),
+               value => _material.SetFloat(transparencyName, value),
+               0.0f, despawnTimer * 0.9f);
+            LeanPool.Despawn(gameObject, despawnTimer);
          });
    }
 }
