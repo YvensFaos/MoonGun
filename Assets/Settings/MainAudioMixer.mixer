@@ -9,7 +9,8 @@ AudioMixerGroupController:
   m_Name: Soundtrack
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: fd6492bac585348cc905364e216ce964
-  m_Children: []
+  m_Children:
+  - {fileID: -5585406091097884445}
   m_Volume: a8c955799818a44fdb2de6d20b2fe82b
   m_Pitch: 8f7ce910c480f43b4b89f2a6443069ba
   m_Send: 00000000000000000000000000000000
@@ -32,6 +33,39 @@ AudioMixerEffectController:
   m_MixLevel: 7431f76b8a1154e33866d8e3de266e9a
   m_Parameters: []
   m_SendTarget: {fileID: 4180989545772936488}
+  m_EnableWetMix: 0
+  m_Bypass: 0
+--- !u!243 &-5585406091097884445
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Ambience
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: d03611a9d499a45f4bc40ef60ba1f81b
+  m_Children: []
+  m_Volume: 54105f8468ec04308b1a8f3e304103ee
+  m_Pitch: bb7902874c35041a596a59151181e3a7
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: -4958998269931354506}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
+--- !u!244 &-4958998269931354506
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: c6fbde4220044464a9970fe440bab4e6
+  m_EffectName: Attenuation
+  m_MixLevel: 41b9833808be042f389dcf0b59e5cd19
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
   m_Bypass: 0
 --- !u!244 &-4310294285930523473
@@ -87,6 +121,7 @@ AudioMixerController:
     - 75142e4c246f1424e81f80fa68995077
     - c39ce6b8bc6d44c359b87d28e3c3b5e8
     - 7383a5e3f54674f1099d591e9c5ec803
+    - d03611a9d499a45f4bc40ef60ba1f81b
     name: View
   m_CurrentViewIndex: 0
   m_TargetSnapshot: {fileID: 24500006}
@@ -137,6 +172,7 @@ AudioMixerSnapshotController:
   m_FloatValues:
     405183c22e9c1401d969872da97be3d8: -4.599356
     9623cd93ca66a47599b81d6519ce15bb: 0.145
+    54105f8468ec04308b1a8f3e304103ee: -19.928473
     7ab6d2d9988894a309dc85a99ca75724: 0.353
     a35f1b2ab5f4a42dc97d600d6f4050f0: -43.8
     7431f76b8a1154e33866d8e3de266e9a: 0
