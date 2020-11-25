@@ -21,11 +21,12 @@ public class QuestObserver : MonoBehaviour
     {
         if (_hasActiveQuest)
         {
-            if (!_currentQuestInfo.complexQuest)
+            if (!_currentQuestInfo.complexQuest && (_currentQuestInfo.asteroidType == type || _currentQuestInfo.asteroidType == AsteroidType.ANY_TYPE))
             {
-                if ((_currentQuestInfo.asteroidType == type || _currentQuestInfo.asteroidType == AsteroidType.ANY_TYPE) && _countDownAsteroid >= 0)
+                --_countDownAsteroid;
+                if (_countDownAsteroid == 0)
                 {
-                    --_countDownAsteroid;
+                    
                     _hasActiveQuest = false;
                     GameLogic.Instance.QuestCompleted(_currentQuestInfo);
                     UnlockNextQuest(_currentQuestInfo);
