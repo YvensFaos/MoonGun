@@ -158,6 +158,11 @@ public class TurretControl : MonoBehaviour
         }
     }
 
+    public void IncrementRotationRange(float rangeToIncrement)
+    {
+        UpgradeRotationRange(rotationRange + rangeToIncrement);
+    }
+    
     public void UpgradeRotationRange(float range)
     {
         rotationRange = range;

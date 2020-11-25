@@ -26,3 +26,7 @@ MonoBehaviour:
     description: Decreases the cannon cooldown to 1.0 seconds.
     mineralCost: 20
     asteroidCost: 0
+  - name: Wide Arc
+    description: Increases the turret angle range by 10 degrees.
+    mineralCost: 35
+    asteroidCost: 0

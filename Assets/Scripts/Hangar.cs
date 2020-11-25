@@ -4,8 +4,6 @@ public class Hangar : Upgradable
 {
     public void UnlockUpgrade(UpgradeInfo info)
     {
-        //UpgradeRotationRange
-        
         //Tier 1
         if (info.name.Equals("Faster Shoot"))
         {
@@ -24,6 +22,10 @@ public class Hangar : Upgradable
             var turret = GameLogic.Instance.Turret;
             turret.UnlockLaser();
             GameLogic.Instance.DisplayWeaponPanel();
+        } else if (info.name.Equals("Wide Arc"))
+        {
+            var turret = GameLogic.Instance.Turret;
+            turret.IncrementRotationRange(10.0f);
         }
         
         //Tier 2
