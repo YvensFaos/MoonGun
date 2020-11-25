@@ -5421,6 +5421,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questList: {fileID: 11400000, guid: 97cffc4cb8c1045149e3870ae790fe43, type: 2}
+  questSuccessSound: {fileID: 8300000, guid: 85ececa8c9eb14ec2af9cd0ba5e035c1, type: 3}
 --- !u!1 &653260035
 GameObject:
   m_ObjectHideFlags: 0

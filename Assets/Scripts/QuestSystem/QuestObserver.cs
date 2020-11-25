@@ -8,6 +8,9 @@ public class QuestObserver : MonoBehaviour
 
     [Header("Quests")] 
     [SerializeField] private QuestList questList;
+
+    [Header("Effects")] 
+    [SerializeField] private AudioClip questSuccessSound;
     
     public void ActivateQuest(QuestInfo questInfo)
     {
@@ -29,6 +32,7 @@ public class QuestObserver : MonoBehaviour
                     
                     _hasActiveQuest = false;
                     GameLogic.Instance.QuestCompleted(_currentQuestInfo);
+                    GameLogic.Instance.PlayUISound(questSuccessSound);
                     UnlockNextQuest(_currentQuestInfo);
                 }
             }
