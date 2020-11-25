@@ -27,11 +27,13 @@ public class TurretControl : MonoBehaviour
     [SerializeField] private float projectileLife = 4.0f;
     [SerializeField] private Vector3 projectileScaling = new Vector3(0.09f, 0.09f, 0.09f);
     [SerializeField] private float cannonCoolDownTimer = 1.5f;
+    [SerializeField] private AudioSource cannonAudioSource;
     
     [Header("Laser Properties")]
     [SerializeField] private GameObject laserObject;
     [SerializeField] private float laserCooldown = 2.0f;
     [SerializeField] private float laserConsuption = 0.5f;
+    [SerializeField] private AudioSource laserAudioSource;
     
     [Header("Debug Properties")]
     [SerializeField] private float rayDebugLength = 0.22f;
@@ -119,6 +121,7 @@ public class TurretControl : MonoBehaviour
         Destroy(bullet.gameObject, ProjectileLife);
 
         _canShoot = false;
+        cannonAudioSource.Play();
         cooldownImage.fillAmount = 0.0f;
         cooldownImage.DOFillAmount(1.0f, CannonCoolDownTimer).OnComplete(CanShootAgain);
     }
@@ -129,8 +132,10 @@ public class TurretControl : MonoBehaviour
         laserObject.SetActive(true);
         _canShoot = false;
         cooldownImage.fillAmount = 1.0f;
+        laserAudioSource.Play();
         cooldownImage.DOFillAmount(0.0f, LaserConsuption).OnComplete(() =>
         {
+            laserAudioSource.Stop();
             laserObject.SetActive(false);    
             cooldownImage.DOFillAmount(1.0f, LaserCooldown).OnComplete(CanShootAgain);
         });
