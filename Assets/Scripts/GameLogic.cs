@@ -67,6 +67,7 @@ public class GameLogic : MonoBehaviour
     [SerializeField] private Animator questCompletedAnimator;
     [SerializeField] private QuestObserver questObserver;
     [SerializeField] private LootboxSystem lootboxSystem;
+    [SerializeField] private PlaySound uiSound;
     
     [Header("Camera Elements")]
     [SerializeField] private CinemachineVirtualCamera fightCamera;
@@ -187,5 +188,10 @@ public class GameLogic : MonoBehaviour
     public void ChangeAsteroidLightIntensity(float intensity)
     {
         asteroidLightIntensity = Mathf.Clamp01(intensity);
+    }
+
+    public void PlayUISound(AudioClip sound)
+    {
+        uiSound.Play(sound);
     }
 }

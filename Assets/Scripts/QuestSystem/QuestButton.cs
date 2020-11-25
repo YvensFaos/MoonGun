@@ -7,7 +7,8 @@ public class QuestButton : MonoBehaviour
     [SerializeField] private Text mineralReward;
     [SerializeField] private Text questName;
     [SerializeField] private Text questDescription;
-   
+    [SerializeField] private AudioClip questClickSound;
+    
     private QuestInfo _questInfo;
    
     public void Initialize(QuestInfo questInfo)
@@ -22,6 +23,7 @@ public class QuestButton : MonoBehaviour
     public void ClickMe()
     {
         GameLogic.Instance.LabsControl.TakeQuest(_questInfo);
+        GameLogic.Instance.PlayUISound(questClickSound);
         Destroy(gameObject);
     }
 }

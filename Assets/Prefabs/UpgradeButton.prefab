@@ -313,6 +313,8 @@ MonoBehaviour:
   mineralCost: {fileID: 2440864919108077634}
   upgradeName: {fileID: 2440864919965867088}
   upgradeDescription: {fileID: 2440864918310581539}
+  upgradeSuccessSound: {fileID: 8300000, guid: 9b48995ba5c2342ddb3a8f47cd32438b, type: 3}
+  upgradeFailedSound: {fileID: 8300000, guid: 32e505974fdf147e6ac647cf1734d071, type: 3}
   facility: 0
 --- !u!1 &2440864919763119884
 GameObject:

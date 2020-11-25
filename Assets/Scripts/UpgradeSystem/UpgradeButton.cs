@@ -7,6 +7,8 @@ public class UpgradeButton : MonoBehaviour
    [SerializeField] private Text mineralCost;
    [SerializeField] private Text upgradeName;
    [SerializeField] private Text upgradeDescription;
+   [SerializeField] private AudioClip upgradeSuccessSound;
+   [SerializeField] private AudioClip upgradeFailedSound;
    
    [SerializeField] private FacilityType facility;
 
@@ -27,6 +29,7 @@ public class UpgradeButton : MonoBehaviour
       if (GameLogic.Instance.CheckFunds(_upgradeInfo.asteroidCost, _upgradeInfo.mineralCost))
       {
          GameLogic.Instance.PayForUpgrade(_upgradeInfo.asteroidCost, _upgradeInfo.mineralCost);
+         GameLogic.Instance.PlayUISound(upgradeSuccessSound);
          switch (facility)
          {
             case FacilityType.LABS:
@@ -50,7 +53,7 @@ public class UpgradeButton : MonoBehaviour
       }
       else
       {
-         //Buzz
+         GameLogic.Instance.PlayUISound(upgradeFailedSound);
       }
    }
 }

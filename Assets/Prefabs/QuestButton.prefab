@@ -606,6 +606,7 @@ MonoBehaviour:
   mineralReward: {fileID: 6781242273878820000}
   questName: {fileID: 6781242273050497202}
   questDescription: {fileID: 6781242273617410497}
+  questClickSound: {fileID: 8300000, guid: 89e15450acc894846bec8e5a621e82ae, type: 3}
 --- !u!1 &6781242273878820002
 GameObject:
   m_ObjectHideFlags: 0

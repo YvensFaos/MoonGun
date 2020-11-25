@@ -1354,6 +1354,7 @@ GameObject:
   m_Component:
   - component: {fileID: 193675268}
   - component: {fileID: 193675269}
+  - component: {fileID: 193675270}
   m_Layer: 0
   m_Name: Interface Sounds
   m_TagString: Untagged
@@ -1471,6 +1472,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &193675270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 193675267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bbb8a3be75484514b89375a8c96ee83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &198190208
 GameObject:
   m_ObjectHideFlags: 0
@@ -5392,6 +5405,7 @@ MonoBehaviour:
   questCompletedAnimator: {fileID: 1561966150}
   questObserver: {fileID: 588007194}
   lootboxSystem: {fileID: 0}
+  uiSound: {fileID: 193675270}
   fightCamera: {fileID: 50939843}
   noFundsCheck: 0
 --- !u!114 &588007194
