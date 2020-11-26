@@ -10,6 +10,7 @@ public class TurretControl : MonoBehaviour
     [SerializeField] private GameObject turretAimBase;
     [SerializeField] private GameObject turretAimTip;
     [SerializeField] private Image cooldownImage;
+    [SerializeField] private Image laserCooldownImage;
     [SerializeField] private Camera turretCamera;
     
     [Header("Turret Properties")] 
@@ -19,7 +20,9 @@ public class TurretControl : MonoBehaviour
     
     private bool _unlockedLaser; //false by default
     private bool _canMove; //false by default
+    
     private bool _canShoot = true;
+    private bool _canLaser = true;
     
     [Header("Projectile Properties")]
     [SerializeField] private Rigidbody bulletGameObject;
@@ -79,13 +82,21 @@ public class TurretControl : MonoBehaviour
 
     private void ShootMechanic() 
     {
-        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) && _canShoot)
+        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)))
         {
             switch (cannonType)
             {
-                case TurretCannonType.CANNON: CannonShoot();
+                case TurretCannonType.CANNON:
+                    if (_canShoot)
+                    {
+                        CannonShoot();
+                    }
                     break;
-                case TurretCannonType.LASER: LaserShoot();
+                case TurretCannonType.LASER:
+                    if (_canLaser)
+                    {
+                        LaserShoot();
+                    }
                     break;
             }
         }
@@ -93,19 +104,22 @@ public class TurretControl : MonoBehaviour
 
     private void SwitchWeapon()
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift) && UnlockedLaser)
+        if (UnlockedLaser)
         {
-            switch (cannonType)
+            if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetMouseButtonDown(1))
             {
-                case TurretCannonType.CANNON:
-                    cannonType = TurretCannonType.LASER; 
-                    break;
-                case TurretCannonType.LASER:
-                    cannonType = TurretCannonType.CANNON;
-                    break;
+                switch (cannonType)
+                {
+                    case TurretCannonType.CANNON:
+                        cannonType = TurretCannonType.LASER;
+                        break;
+                    case TurretCannonType.LASER:
+                        cannonType = TurretCannonType.CANNON;
+                        break;
+                }
+
+                GameLogic.Instance.ChangeWeapon(cannonType);
             }
-            
-            GameLogic.Instance.ChangeWeapon(cannonType);
         }
     }
     
@@ -130,20 +144,25 @@ public class TurretControl : MonoBehaviour
     {
         GameLogic.Instance.ShakeFightCamera(3.0f, 0.5f);
         laserObject.SetActive(true);
-        _canShoot = false;
+        _canLaser = false;
         cooldownImage.fillAmount = 1.0f;
         laserAudioSource.Play();
-        cooldownImage.DOFillAmount(0.0f, LaserConsuption).OnComplete(() =>
+        laserCooldownImage.DOFillAmount(0.0f, LaserConsuption).OnComplete(() =>
         {
             laserAudioSource.Stop();
             laserObject.SetActive(false);    
-            cooldownImage.DOFillAmount(1.0f, LaserCooldown).OnComplete(CanShootAgain);
+            laserCooldownImage.DOFillAmount(1.0f, LaserCooldown).OnComplete(CanLaserShootAgain);
         });
     }
 
     private void CanShootAgain()
     {
         _canShoot = true;
+    }
+    
+    private void CanLaserShootAgain()
+    {
+        _canLaser = true;
     }
 
     public void ToggleTurretMovement(bool movement)
@@ -201,5 +220,7 @@ public class TurretControl : MonoBehaviour
     public void UnlockLaser()
     {
         _unlockedLaser = true;
+        cooldownImage.rectTransform.DOAnchorMax(new Vector2(0.5f, 1.0f), 1.0f);
+        laserCooldownImage.gameObject.SetActive(true);
     }
 }

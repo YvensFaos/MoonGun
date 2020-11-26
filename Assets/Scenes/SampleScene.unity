@@ -6108,6 +6108,81 @@ AudioSource:
   m_CorrespondingSourceObject: {fileID: 759662984, guid: 85f5b293d1fe14b2d9572fb59b8d129c, type: 3}
   m_PrefabInstance: {fileID: 3912095235751061869}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &764411003
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 764411004}
+  - component: {fileID: 764411006}
+  - component: {fileID: 764411005}
+  m_Layer: 0
+  m_Name: LaserCooldown
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &764411004
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 764411003}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3912095235751061870}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &764411005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 764411003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 2100000, guid: 01808784b77074e53b9de1f2fa701e46, type: 2}
+  m_Color: {r: 0.9150943, g: 0.11654504, b: 0.7261249, a: 1}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 0
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 834f0d859a0f7423aa59ac9ca0d38007, type: 3}
+  m_Type: 3
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 1
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &764411006
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 764411003}
+  m_CullTransparentMesh: 0
 --- !u!1 &771917113
 GameObject:
   m_ObjectHideFlags: 0
@@ -7321,8 +7396,8 @@ RectTransform:
   m_Father: {fileID: 553702527}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.042026263, y: 0.12357848}
-  m_AnchorMax: {x: 0.25240424, y: 0.2908778}
+  m_AnchorMin: {x: 0.042026263, y: 0.044746622}
+  m_AnchorMax: {x: 0.5906988, y: 0.3234199}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -7351,15 +7426,15 @@ MonoBehaviour:
     m_FontSize: 16
     m_FontStyle: 0
     m_BestFit: 1
-    m_MinSize: 16
+    m_MinSize: 11
     m_MaxSize: 60
-    m_Alignment: 3
+    m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
-    m_VerticalOverflow: 1
+    m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: SHIFT
+  m_Text: SHIFT / RIGHT CLICK
 --- !u!222 &879622678
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -27814,6 +27889,14 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1687258584}
+    - target: {fileID: 1901323903, guid: 85f5b293d1fe14b2d9572fb59b8d129c, type: 3}
+      propertyPath: m_Name
+      value: CannonCooldown
+      objectReference: {fileID: 0}
+    - target: {fileID: 1901323904, guid: 85f5b293d1fe14b2d9572fb59b8d129c, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1928445381, guid: 85f5b293d1fe14b2d9572fb59b8d129c, type: 3}
       propertyPath: m_audioClip
       value: 
@@ -27821,6 +27904,38 @@ PrefabInstance:
     - target: {fileID: 1928445381, guid: 85f5b293d1fe14b2d9572fb59b8d129c, type: 3}
       propertyPath: m_Pitch
       value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3912095234608675192, guid: 85f5b293d1fe14b2d9572fb59b8d129c, type: 3}
+      propertyPath: m_Color.g
+      value: 0.16340333
+      objectReference: {fileID: 0}
+    - target: {fileID: 3912095234608675192, guid: 85f5b293d1fe14b2d9572fb59b8d129c, type: 3}
+      propertyPath: m_Color.b
+      value: 0.5556195
+      objectReference: {fileID: 0}
+    - target: {fileID: 3912095234608675192, guid: 85f5b293d1fe14b2d9572fb59b8d129c, type: 3}
+      propertyPath: m_Color.r
+      value: 0.6792453
+      objectReference: {fileID: 0}
+    - target: {fileID: 3912095235663949630, guid: 85f5b293d1fe14b2d9572fb59b8d129c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 01808784b77074e53b9de1f2fa701e46, type: 2}
+    - target: {fileID: 3912095235997939691, guid: 85f5b293d1fe14b2d9572fb59b8d129c, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0.9056604
+      objectReference: {fileID: 0}
+    - target: {fileID: 3912095235997939691, guid: 85f5b293d1fe14b2d9572fb59b8d129c, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.36311856
+      objectReference: {fileID: 0}
+    - target: {fileID: 3912095235997939691, guid: 85f5b293d1fe14b2d9572fb59b8d129c, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 0.77727276
+      objectReference: {fileID: 0}
+    - target: {fileID: 3912095236328519771, guid: 85f5b293d1fe14b2d9572fb59b8d129c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5956738459504914144, guid: 85f5b293d1fe14b2d9572fb59b8d129c, type: 3}
       propertyPath: m_Name
@@ -27882,8 +27997,17 @@ PrefabInstance:
       propertyPath: laserAudioSource
       value: 
       objectReference: {fileID: 1928445381}
+    - target: {fileID: 7268840526328235918, guid: 85f5b293d1fe14b2d9572fb59b8d129c, type: 3}
+      propertyPath: laserCooldownImage
+      value: 
+      objectReference: {fileID: 764411005}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85f5b293d1fe14b2d9572fb59b8d129c, type: 3}
+--- !u!224 &3912095235751061870 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3341731, guid: 85f5b293d1fe14b2d9572fb59b8d129c, type: 3}
+  m_PrefabInstance: {fileID: 3912095235751061869}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3971710052201087403
 Transform:
   m_ObjectHideFlags: 0
