@@ -40,7 +40,7 @@ public class Hangar : Upgradable
         } else if (info.name.Equals("Pristine Laser"))
         {
             var turret = GameLogic.Instance.Turret;
-            turret.UpgradeLaserDuration(1.0f);
+            turret.UpgradeLaserDuration(1.5f);
         } else if (info.name.Equals("Laser Recharge"))
         {
             var turret = GameLogic.Instance.Turret;

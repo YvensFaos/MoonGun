@@ -17,7 +17,7 @@ public class GameLogic : MonoBehaviour
 
     public QuestObserver QuestControl => questObserver;
 
-    public LootboxSystem LootboxControl => lootboxSystem;
+    public AsteroidTreasure TreasureControl => treasurer;
     
     public int AsteroidsCollected
     {
@@ -66,8 +66,8 @@ public class GameLogic : MonoBehaviour
     [SerializeField] private Labs labs;
     [SerializeField] private Animator questCompletedAnimator;
     [SerializeField] private QuestObserver questObserver;
-    [SerializeField] private LootboxSystem lootboxSystem;
     [SerializeField] private PlaySound uiSound;
+    [SerializeField] private AsteroidTreasure treasurer;
     
     [Header("Camera Elements")]
     [SerializeField] private CinemachineVirtualCamera fightCamera;
@@ -115,7 +115,12 @@ public class GameLogic : MonoBehaviour
 
     public void AsteroidEffect(AsteroidEffects effect)
     {
-        
+        switch (effect)
+        {
+            case AsteroidEffects.TREASURE:
+                treasurer.GenerateTreasureFromAsteroid();
+            break;
+        }
     }
 
     public void DamageShield(AsteroidDestruction asteroid)

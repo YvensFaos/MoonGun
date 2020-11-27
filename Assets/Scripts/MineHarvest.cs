@@ -8,7 +8,7 @@ public class MineHarvest : Upgradable
     [Header("Mining Properties")]
     [SerializeField] private int mineHarvestPerTick = 1;
     [SerializeField] private float mineHarvestTick = 5.0f;
-    [SerializeField] private float nuggetsChance = 0.0f;
+    [SerializeField] private float nuggetsChance; //0 by default
 
     private IEnumerator _harvestCorountine;
 
@@ -51,8 +51,13 @@ public class MineHarvest : Upgradable
                 mineHarvestPerTick = 3;
                 break;
             case "Nuggets!":
-                nuggetsChance = 5.0f;
+                nuggetsChance += 5.0f;
                 break;
         }
+    }
+
+    public void UpgradeNuggets(int incrementBy)
+    {
+        nuggetsChance += incrementBy;
     }
 }

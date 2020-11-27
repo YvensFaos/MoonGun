@@ -1,4 +1,5 @@
-﻿using DG.Tweening;
+﻿using System;
+using DG.Tweening;
 using Lean.Pool;
 using UnityEngine;
 using UnityEngine.UI;
@@ -16,6 +17,7 @@ public class TurretControl : MonoBehaviour
     [Header("Turret Properties")] 
     [Range(1.0f, 150.0f)]
     [SerializeField] private float rotationRange = 70.0f;
+    private float _rangeLimit = 120.0f;
     [SerializeField] private TurretCannonType cannonType = TurretCannonType.CANNON;
     
     private bool _unlockedLaser; //false by default
@@ -189,7 +191,7 @@ public class TurretControl : MonoBehaviour
     
     public void UpgradeRotationRange(float range)
     {
-        rotationRange = range;
+        rotationRange = Mathf.Min(range, _rangeLimit);
     }
 
     public void UpgradeProjectileForce(float newForce)
@@ -205,6 +207,11 @@ public class TurretControl : MonoBehaviour
     public void UpgradeCannonCooldown(float newCooldown)
     {
         cannonCoolDownTimer = newCooldown;
+    }
+    
+    public void DecrementCannonCooldown(float decrementBy)
+    {
+        cannonCoolDownTimer -= Mathf.Max(0.0f, cannonCoolDownTimer - decrementBy);
     }
 
     public void UpgradeLaserDuration(float newDuraction)
