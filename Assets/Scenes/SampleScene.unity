@@ -6022,20 +6022,20 @@ MonoBehaviour:
   m_FillRect: {fileID: 1402388458}
   m_HandleRect: {fileID: 667486967}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 1
+  m_MinValue: -80
+  m_MaxValue: 20
   m_WholeNumbers: 0
   m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2072593889}
-        m_TargetAssemblyTypeName: AudioSlider, Assembly-CSharp
-        m_MethodName: ChangeVolume
-        m_Mode: 0
+        m_TargetAssemblyTypeName: MixerAudioSlider, Assembly-CSharp
+        m_MethodName: ChangeMixerVolume
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 705712311}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Slider, UnityEngine.UI
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -6409,8 +6409,8 @@ MonoBehaviour:
   m_FillRect: {fileID: 693175602}
   m_HandleRect: {fileID: 438357905}
   m_Direction: 0
-  m_MinValue: -5
-  m_MaxValue: 0
+  m_MinValue: -80
+  m_MaxValue: 20
   m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:
@@ -15421,7 +15421,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -196.2876, y: 233.521}
+  m_AnchoredPosition: {x: -196.28809, y: 233.521}
   m_SizeDelta: {x: 575.4187, y: 639.1299}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1880569006
@@ -21702,10 +21702,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2072593886}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 531d63a7128fa4c10adcd56a73329e12, type: 3}
+  m_Script: {fileID: 11500000, guid: c621ffe7556d4f2793912ec24b08a645, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  source: {fileID: 2072593888}
+  mixer: {fileID: 24100000, guid: 91bccf798d97e426c9c973b0005976be, type: 2}
+  exposedVariable: MusicVolume
   slider: {fileID: 705712311}
 --- !u!1 &2077000319
 GameObject:
