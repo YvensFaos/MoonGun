@@ -12,10 +12,14 @@ public class AsteroidSpawner : MonoBehaviour
     [SerializeField] private Vector3 minBounds;
     [SerializeField] private Vector3 maxBounds;
     [SerializeField] private bool startSpawning;
+    private int _tier = 0;
 
     [Header("Asteroids to Spawn")]
     [SerializeField] private  List<AsteroidToSpawn> asteroids;
     [SerializeField] private  float timer = 0.5f;
+    
+    [SerializeField] private List<AsteroidToSpawn> asteroidTier2;
+    
     private float _totalChance;
     private IEnumerator _spawner;
 
@@ -38,6 +42,8 @@ public class AsteroidSpawner : MonoBehaviour
         }
 
         asteroids.Sort();
+        asteroidTier2.Sort();
+        
         _totalChance = asteroids.Sum(asteroid => asteroid.spawnChance);
     }
 
@@ -64,7 +70,15 @@ public class AsteroidSpawner : MonoBehaviour
     {
         float chance = Random.Range(0.0f, _totalChance);
         float chanceAcc = 0.0f;
-        foreach (var asteroid in asteroids)
+        
+        var spawnList = asteroids;
+        switch (_tier)
+        {
+            case 1: spawnList = asteroidTier2;
+                break;
+        }
+            
+        foreach (var asteroid in spawnList)
         {
             if (chance < asteroid.spawnChance + chanceAcc)
             {
@@ -78,6 +92,11 @@ public class AsteroidSpawner : MonoBehaviour
 
             chanceAcc += asteroid.spawnChance;
         }
+    }
+
+    public void IncrementTier()
+    {
+        _tier++;
     }
 
     private IEnumerator SpawnAsteroids()

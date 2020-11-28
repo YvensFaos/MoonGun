@@ -16,5 +16,5 @@ MonoBehaviour:
   Upgrades:
   - name: Break the Surface
     description: Allow our miners to dig  deeper into the surface of the moon.
-    mineralCost: 300
-    asteroidCost: 300
+    mineralCost: 250
+    asteroidCost: 100

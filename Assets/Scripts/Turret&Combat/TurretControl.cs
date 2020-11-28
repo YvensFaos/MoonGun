@@ -1,6 +1,7 @@
 ﻿using System;
 using DG.Tweening;
 using Lean.Pool;
+using UnityEditor.Build;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -197,17 +198,29 @@ public class TurretControl : MonoBehaviour
 
     public void UpgradeProjectileForce(float newForce)
     {
-        projectileForce = newForce;
+        //Prevents downgrade when using outdated upgrades
+        if (newForce > projectileForce)
+        {
+            projectileForce = newForce;
+        }
     }
 
     public void UpgradeProjectileScale(Vector3 newScale)
     {
-        projectileScaling = newScale;
+        //Prevents downgrade when using outdated upgrades
+        if (newScale.magnitude > projectileScaling.magnitude)
+        {
+            projectileScaling = newScale;
+        }
     }
 
     public void UpgradeCannonCooldown(float newCooldown)
     {
-        cannonCoolDownTimer = newCooldown;
+        //Prevents downgrade when using outdated upgrades
+        if (newCooldown < cannonCoolDownTimer)
+        {
+            cannonCoolDownTimer = newCooldown;
+        }
     }
     
     public void DecrementCannonCooldown(float decrementBy)
@@ -217,12 +230,20 @@ public class TurretControl : MonoBehaviour
 
     public void UpgradeLaserDuration(float newDuraction)
     {
-        laserConsuption = newDuraction;
+        //Prevents downgrade when using outdated upgrades
+        if (newDuraction > laserConsuption) 
+        {
+            laserConsuption = newDuraction;
+        }
     }
 
     public void UpgradeLaserCooldown(float newCooldown)
     {
-        laserCooldown = newCooldown;
+        //Prevents downgrade when using outdated upgrades
+        if (newCooldown < laserCooldown)
+        {
+            laserCooldown = newCooldown;
+        }
     }
 
     public void UnlockLaser()
@@ -232,7 +253,7 @@ public class TurretControl : MonoBehaviour
         laserCooldownImage.gameObject.SetActive(true);
     }
 
-    public void UnlockTrippleCannon()
+    public void UnlockTripleCannon()
     {
         _unlockedTripleCannon = true;
         //TODO

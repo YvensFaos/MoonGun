@@ -45,6 +45,7 @@ public class MineHarvest : Upgradable
 
     public void UnlockUpgrade(UpgradeInfo info)
     {
+        //TODO verify values before upgrade, to avoid downgrading when using outdated upgrades
         switch (info.name)
         {
             //Tier 1

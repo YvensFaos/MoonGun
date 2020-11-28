@@ -49,7 +49,7 @@ public class Hangar : Upgradable
                  turret.UpgradeCannonCooldown(0.5f);
                  break;
              case "Triple Cannon":
-                 turret.UnlockTrippleCannon();
+                 turret.UnlockTripleCannon();
                  break;
         }
     }
