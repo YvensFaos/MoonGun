@@ -31,6 +31,8 @@ public class InformationViewer : MonoBehaviour
             stringBuilder.AppendFormat("Laser Duration: {0} secs.\n", turret.LaserConsuption);
             stringBuilder.AppendFormat("Laser Cooldown: {0} secs.\n", turret.LaserCooldown);
         }
+        
+        //Continue here with the others
 
         _informationText.text = stringBuilder.ToString();
     }

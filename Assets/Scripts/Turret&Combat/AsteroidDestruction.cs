@@ -26,7 +26,9 @@ public class AsteroidDestruction : MonoBehaviour
    [SerializeField] private float lightEffectPower = -2.0f;
    [SerializeField] private float lightEffectTimer = 0.5f;
    [SerializeField] private float despawnTimer = 0.5f;
-   
+   [SerializeField] private float damagePower = 0.0f;
+
+   public float DamagePower => damagePower;
 
    [SerializeField] private AsteroidType type;
    [SerializeField] private AsteroidEffects effect;
@@ -77,10 +79,7 @@ public class AsteroidDestruction : MonoBehaviour
          if (effect == AsteroidEffects.DAMAGE)
          {
             GameLogic.Instance.DamageShield(this);
-         }
-         else
-         {
-            GameLogic.Instance.AnimateShield();
+            GameLogic.Instance.ShakeFightCamera(shakeForce * 1.2f, shakeTime);
          }
          StopAndAnimateAsteroidDestruction(false);
       }

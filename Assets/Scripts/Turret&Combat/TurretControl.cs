@@ -21,6 +21,7 @@ public class TurretControl : MonoBehaviour
     [SerializeField] private TurretCannonType cannonType = TurretCannonType.CANNON;
     
     private bool _unlockedLaser; //false by default
+    private bool _unlockedTripleCannon; //false by default
     private bool _canMove; //false by default
     
     private bool _canShoot = true;
@@ -229,5 +230,11 @@ public class TurretControl : MonoBehaviour
         _unlockedLaser = true;
         cooldownImage.rectTransform.DOAnchorMax(new Vector2(0.5f, 1.0f), 1.0f);
         laserCooldownImage.gameObject.SetActive(true);
+    }
+
+    public void UnlockTrippleCannon()
+    {
+        _unlockedTripleCannon = true;
+        //TODO
     }
 }

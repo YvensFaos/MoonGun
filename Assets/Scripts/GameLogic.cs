@@ -20,6 +20,8 @@ public class GameLogic : MonoBehaviour
     public AsteroidTreasure TreasureControl => treasurer;
 
     public CutsceneCommander Cutscenes => commander;
+
+    public ShieldControl Shield => shield;
     
     public int AsteroidsCollected
     {
@@ -50,6 +52,10 @@ public class GameLogic : MonoBehaviour
     [Header("Game Properties")]
     [SerializeField] private int asteroidsCollected = 0;
     [SerializeField] private int mineralsCollected = 0;
+    [SerializeField] private int shieldRestorationCost = 10;
+    private float _restorationCostIncreaseFactor = 1.618f;
+
+    public int ShieldRestorationCost => shieldRestorationCost; 
     
     [SerializeField, Range(0.0f, 1.0f)] 
     private float asteroidLightIntensity = 1.0f;
@@ -71,6 +77,7 @@ public class GameLogic : MonoBehaviour
     [SerializeField] private PlaySound uiSound;
     [SerializeField] private AsteroidTreasure treasurer;
     [SerializeField] private CutsceneCommander commander;
+    [SerializeField] private ShieldControl shield;
     
     [Header("Camera Elements")]
     [SerializeField] private CinemachineVirtualCamera fightCamera;
@@ -129,12 +136,7 @@ public class GameLogic : MonoBehaviour
 
     public void DamageShield(AsteroidDestruction asteroid)
     {
-        
-    }
-
-    public void AnimateShield()
-    {
-        
+        shield.TakeDamage(asteroid.DamagePower);
     }
 
     public bool CheckFunds(int asteroidCost, int mineralCost)
@@ -197,6 +199,11 @@ public class GameLogic : MonoBehaviour
     public void ChangeAsteroidLightIntensity(float intensity)
     {
         asteroidLightIntensity = Mathf.Clamp01(intensity);
+    }
+
+    public void IncreaseShieldRestorationCost()
+    {
+        shieldRestorationCost = (int) (shieldRestorationCost * _restorationCostIncreaseFactor);
     }
 
     public void PlayUISound(AudioClip sound)

@@ -4,47 +4,53 @@ public class Hangar : Upgradable
 {
     public void UnlockUpgrade(UpgradeInfo info)
     {
-        //Tier 1
-        if (info.name.Equals("Faster Shoot"))
-        {
-            var turret = GameLogic.Instance.Turret;
-            turret.UpgradeProjectileForce(8.0f);
-        } else if (info.name.Equals("Bigger Projectile"))
-        {
-            var turret = GameLogic.Instance.Turret;
-            turret.UpgradeProjectileScale(new Vector3(0.195f, 0.195f, 0.195f));
-        } else if (info.name.Equals("Faster Shoot"))
-        {
-            var turret = GameLogic.Instance.Turret;
-            turret.UpgradeCannonCooldown(1.00f);
-        } else if (info.name.Equals("Laser Shot"))
-        {
-            var turret = GameLogic.Instance.Turret;
-            turret.UnlockLaser();
-            GameLogic.Instance.DisplayWeaponPanel();
-        } else if (info.name.Equals("Wide Arc"))
-        {
-            var turret = GameLogic.Instance.Turret;
-            turret.IncrementRotationRange(10.0f);
-        }
         
-        //Tier 2
-        if (info.name.Equals("Speed Bullet"))
+        var turret = GameLogic.Instance.Turret;
+        switch (info.name)
         {
-            var turret = GameLogic.Instance.Turret;
-            turret.UpgradeProjectileForce(12.0f);
-        } else if (info.name.Equals("Super Charge"))
-        {
-            var turret = GameLogic.Instance.Turret;
-            turret.UpgradeCannonCooldown(0.75f);
-        } else if (info.name.Equals("Pristine Laser"))
-        {
-            var turret = GameLogic.Instance.Turret;
-            turret.UpgradeLaserDuration(1.5f);
-        } else if (info.name.Equals("Laser Recharge"))
-        {
-            var turret = GameLogic.Instance.Turret;
-            turret.UpgradeLaserCooldown(1.5f);
+             //Tier 1
+             case "Faster Shoot":
+                 turret.UpgradeProjectileForce(8.0f);
+                 break;
+             case "Bigger Projectile":
+                 turret.UpgradeProjectileScale(new Vector3(0.195f, 0.195f, 0.195f));
+                 break;
+             case "Super Reload":
+                 turret.UpgradeCannonCooldown(1.00f);
+                 break;
+             
+             case "Wide Arc":
+                 turret.IncrementRotationRange(10.0f);
+              break;
+             case "Laser Shot":
+                 turret.UnlockLaser();
+                 GameLogic.Instance.DisplayWeaponPanel();
+                 break;
+
+             //Tier 2
+            case "Speed Bullet":
+                 turret.UpgradeProjectileForce(12.0f);
+                 break;
+            case "Super Charge":
+                 turret.UpgradeCannonCooldown(0.75f);
+                 break;
+            case "Pristine Laser":
+                 turret.UpgradeLaserDuration(1.5f);
+                 break;
+            case "Laser Recharge":
+                 turret.UpgradeLaserCooldown(1.5f);
+                 break;
+            
+             //Tier 3
+             case "Celera Bullet":
+                 turret.UpgradeProjectileForce(18.0f);
+                 break;
+             case "Hyper Charge":
+                 turret.UpgradeCannonCooldown(0.5f);
+                 break;
+             case "Triple Cannon":
+                 turret.UnlockTrippleCannon();
+                 break;
         }
     }
 }

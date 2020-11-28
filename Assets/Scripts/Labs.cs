@@ -28,12 +28,13 @@ public class Labs : Upgradable
             GameLogic.Instance.DisplayWeaponPanel();
         } else if (info.name.Equals("Mineral Laser"))
         {
-            labCanvas.SetActive(false);
-            blockCanvas.SetActive(false);
+            CloseLabCanvas();
             GameLogic.Instance.Cutscenes.TriggerMineralLaserCutscene();
-        } else if (info.name.Equals("Breach the Surface"))
-        {
             
+        } else if (info.name.Equals("Break the Surface"))
+        {
+            CloseLabCanvas();
+            GameLogic.Instance.Cutscenes.TriggerBreakTheSurfaceCutscene();
         }
     }
 
@@ -46,5 +47,11 @@ public class Labs : Upgradable
     {
         var quest = Instantiate(questButton, labQuestList.transform);
         quest.Initialize(info);
+    }
+
+    private void CloseLabCanvas()
+    {
+        labCanvas.SetActive(false);
+        blockCanvas.SetActive(false);
     }
 }
