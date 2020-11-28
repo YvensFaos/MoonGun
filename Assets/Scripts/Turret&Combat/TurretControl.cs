@@ -1,7 +1,5 @@
-﻿using System;
-using DG.Tweening;
+﻿using DG.Tweening;
 using Lean.Pool;
-using UnityEditor.Build;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,6 +12,9 @@ public class TurretControl : MonoBehaviour
     [SerializeField] private Image cooldownImage;
     [SerializeField] private Image laserCooldownImage;
     [SerializeField] private Camera turretCamera;
+    [SerializeField] private GameObject turretExtraCannons;
+    [SerializeField] private GameObject turretExtraLeft;
+    [SerializeField] private GameObject turretExtraRight;
     
     [Header("Turret Properties")] 
     [Range(1.0f, 150.0f)]
@@ -133,10 +134,21 @@ public class TurretControl : MonoBehaviour
         var vector = tipPosition - turretAimBase.transform.position;
         vector.Normalize();
 
-        var bullet = LeanPool.Spawn(bulletGameObject, tipPosition, Quaternion.identity);
-        bullet.transform.localScale = projectileScaling;
-        bullet.AddForce(vector * ProjectileForce, ForceMode.Impulse);
-        Destroy(bullet.gameObject, ProjectileLife);
+        void GenerateBullet(Vector3 vector3)
+        {
+            var bullet = LeanPool.Spawn(bulletGameObject, vector3, Quaternion.identity);
+            bullet.transform.localScale = projectileScaling;
+            bullet.AddForce(vector * ProjectileForce, ForceMode.Impulse);
+            Destroy(bullet.gameObject, ProjectileLife);
+        }
+
+        GenerateBullet(tipPosition);
+
+        if (_unlockedTripleCannon)
+        {
+            GenerateBullet(turretExtraLeft.transform.position);
+            GenerateBullet(turretExtraRight.transform.position);
+        }
 
         _canShoot = false;
         cannonAudioSource.Play();
@@ -256,6 +268,6 @@ public class TurretControl : MonoBehaviour
     public void UnlockTripleCannon()
     {
         _unlockedTripleCannon = true;
-        //TODO
+        turretExtraCannons.SetActive(true);
     }
 }

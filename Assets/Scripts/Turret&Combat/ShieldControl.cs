@@ -28,7 +28,7 @@ public class ShieldControl : MonoBehaviour
     {
         var afterDamage = shieldIntegrity - Math.Max(rawDamage - shieldStrength, 0.0f);
         shieldIntegrity = Mathf.Clamp(afterDamage, 0.0f, 10.0f);
-        _shieldMaterial.SetFloat(shieldLifeMaterialUniform, shieldIntegrity / 10.0f);
+        _shieldMaterial.SetFloat(shieldLifeMaterialUniform, NormalizedIntegrity());
 
         if (Math.Abs(shieldIntegrity) < 0.0001f)
         {
@@ -57,5 +57,10 @@ public class ShieldControl : MonoBehaviour
     {
         GameLogic.Instance.MineControl.StopHarvesting();
         shieldDepletedMessage.SetTrigger("ShieldDepleted");
+    }
+
+    public float NormalizedIntegrity()
+    {
+        return shieldIntegrity / 10.0f;
     }
 }
