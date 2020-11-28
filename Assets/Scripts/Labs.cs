@@ -7,6 +7,10 @@ public class Labs : Upgradable
     [SerializeField] private QuestList initialQuest;
     [SerializeField] private VerticalLayoutGroup labQuestList;
     [SerializeField] private QuestButton questButton;
+    
+    [Header("Lab Canvas")]
+    [SerializeField] private GameObject labCanvas;
+    [SerializeField] private GameObject blockCanvas;
 
     public new void Start()
     {
@@ -24,7 +28,12 @@ public class Labs : Upgradable
             GameLogic.Instance.DisplayWeaponPanel();
         } else if (info.name.Equals("Mineral Laser"))
         {
-            //Apply game world modifications
+            labCanvas.SetActive(false);
+            blockCanvas.SetActive(false);
+            GameLogic.Instance.Cutscenes.TriggerMineralLaserCutscene();
+        } else if (info.name.Equals("Breach the Surface"))
+        {
+            
         }
     }
 

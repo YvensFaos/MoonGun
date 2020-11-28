@@ -18,6 +18,8 @@ public class GameLogic : MonoBehaviour
     public QuestObserver QuestControl => questObserver;
 
     public AsteroidTreasure TreasureControl => treasurer;
+
+    public CutsceneCommander Cutscenes => commander;
     
     public int AsteroidsCollected
     {
@@ -68,6 +70,7 @@ public class GameLogic : MonoBehaviour
     [SerializeField] private QuestObserver questObserver;
     [SerializeField] private PlaySound uiSound;
     [SerializeField] private AsteroidTreasure treasurer;
+    [SerializeField] private CutsceneCommander commander;
     
     [Header("Camera Elements")]
     [SerializeField] private CinemachineVirtualCamera fightCamera;
@@ -88,9 +91,10 @@ public class GameLogic : MonoBehaviour
         _instance = this;
         
         //Disable all cheats in the final build.
-#if UNITY_WEBGL
-        noFundsCheck = false;
-#endif
+        if (!Application.isEditor)
+        {
+            noFundsCheck = false;    
+        }
     }
 
     private void Start()
