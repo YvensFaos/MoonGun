@@ -12,15 +12,16 @@ public class AsteroidSpawner : MonoBehaviour
     [SerializeField] private Vector3 minBounds;
     [SerializeField] private Vector3 maxBounds;
     [SerializeField] private bool startSpawning;
-    private int _tier = 0;
+    private int _tier; //0 by default
 
-    [Header("Asteroids to Spawn")]
+    [Header("Asteroids to Spawn")] 
+    [SerializeField] private List<AsteroidSpawnerChance> asteroidsToSpawn;
+    
     [SerializeField] private  List<AsteroidToSpawn> asteroids;
     [SerializeField] private  float timer = 0.5f;
     
     [SerializeField] private List<AsteroidToSpawn> asteroidTier2;
     
-    private float _totalChance;
     private IEnumerator _spawner;
 
     [Header("Debug")]
@@ -41,10 +42,7 @@ public class AsteroidSpawner : MonoBehaviour
             StartCoroutine(_spawner);    
         }
 
-        asteroids.Sort();
-        asteroidTier2.Sort();
-        
-        _totalChance = asteroids.Sum(asteroid => asteroid.spawnChance);
+        asteroidsToSpawn.ForEach(asteroidList => asteroidList.asteroids.Sort());
     }
 
     public void ToggleSpawner(bool toggle)
@@ -66,17 +64,17 @@ public class AsteroidSpawner : MonoBehaviour
         }
     }
 
-    private void ChanceSpawnAsteroids()
+    private void ChanceSpawnAsteroids(AsteroidSpawnerChance asteroidList)
     {
-        float chance = Random.Range(0.0f, _totalChance);
+        float chance = Random.Range(0.0f, asteroidList.totalChance);
         float chanceAcc = 0.0f;
         
-        var spawnList = asteroids;
-        switch (_tier)
-        {
-            case 1: spawnList = asteroidTier2;
-                break;
-        }
+        var spawnList = asteroidList.asteroids;
+        // switch (_tier)
+        // {
+        //     case 1: spawnList = asteroidTier2;
+        //         break;
+        // }
             
         foreach (var asteroid in spawnList)
         {
@@ -103,8 +101,9 @@ public class AsteroidSpawner : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(timer);
-            ChanceSpawnAsteroids();
+            var asteroidList = asteroidsToSpawn[_tier];
+            yield return new WaitForSeconds(asteroidList.timer);
+            ChanceSpawnAsteroids(asteroidList);
         }
     }
 }

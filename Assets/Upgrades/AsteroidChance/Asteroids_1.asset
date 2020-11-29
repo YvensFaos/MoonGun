@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c8cf212b48741a9b46b8166f2c0f2ca, type: 3}
+  m_Name: Asteroids_1
+  m_EditorClassIdentifier: 
+  asteroids:
+  - asteroidPrefab: {fileID: 314202622468952523, guid: dc48859486a9247358ebc5734fecd814, type: 3}
+    asteroidLifeDuration: 4
+    spawnChance: 80
+    asteroidFallVelocity: 1.5
+  - asteroidPrefab: {fileID: 8266432921366845768, guid: 809115f9686af465f8ba6cadbcb09b5e, type: 3}
+    asteroidLifeDuration: 3
+    spawnChance: 5
+    asteroidFallVelocity: 2
+  - asteroidPrefab: {fileID: 7975518486666961852, guid: 187130a3f85194e728681ee0a6c6d655, type: 3}
+    asteroidLifeDuration: 7
+    spawnChance: 2
+    asteroidFallVelocity: 0.6
+  - asteroidPrefab: {fileID: 4665051758673517592, guid: fd9811f16fb6f4a948598e0bed8ab9df, type: 3}
+    asteroidLifeDuration: 7
+    spawnChance: 1
+    asteroidFallVelocity: 4
+  - asteroidPrefab: {fileID: 3606264258570681975, guid: 5d9986ba582ad4c29ade26bb885ac91e, type: 3}
+    asteroidLifeDuration: 4
+    spawnChance: 20
+    asteroidFallVelocity: 1
+  timer: 0.8
+  totalChance: 108
