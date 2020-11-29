@@ -12,6 +12,12 @@ public class MineHarvest : Upgradable
 
     private IEnumerator _harvestCorountine;
 
+    public int MineHarvestPerTick => mineHarvestPerTick;
+
+    public float MineHarvestTick => mineHarvestTick;
+
+    public float NuggetsChance => nuggetsChance;
+
     private void Awake()
     {
         _harvestCorountine = HarvestCorountine();
@@ -26,9 +32,9 @@ public class MineHarvest : Upgradable
     {
         while (true)
         {
-            yield return new WaitForSeconds(mineHarvestTick);
-            int nuggetsIncrement = Random.Range(0.0f, 100.0f) < nuggetsChance ? 1 : 0;
-            GameLogic.Instance.IncrementMinerals(mineHarvestPerTick + nuggetsIncrement);
+            yield return new WaitForSeconds(MineHarvestTick);
+            int nuggetsIncrement = Random.Range(0.0f, 100.0f) < NuggetsChance ? 1 : 0;
+            GameLogic.Instance.IncrementMinerals(MineHarvestPerTick + nuggetsIncrement);
         }
     }
 
@@ -64,7 +70,7 @@ public class MineHarvest : Upgradable
                 mineHarvestPerTick = 3;
                 break;
             case "Nuggets!":
-                nuggetsChance += 5.0f;
+                nuggetsChance = NuggetsChance + 5.0f;
                 break;
             
             //Tier 3
@@ -82,6 +88,6 @@ public class MineHarvest : Upgradable
 
     public void UpgradeNuggets(int incrementBy)
     {
-        nuggetsChance += incrementBy;
+        nuggetsChance = NuggetsChance + incrementBy;
     }
 }

@@ -32,7 +32,18 @@ public class InformationViewer : MonoBehaviour
             stringBuilder.AppendFormat("Laser Cooldown: {0} secs.\n", turret.LaserCooldown);
         }
         
-        //Continue here with the others
+        var mines = GameLogic.Instance.MineControl;
+        stringBuilder.AppendFormat("\n");
+        stringBuilder.AppendFormat("Mining Facility:\n");
+        stringBuilder.AppendFormat("Minerals per Tick: {0} minerals.\n", mines.MineHarvestTick);
+        stringBuilder.AppendFormat("Time per Tick: {0:0.00} seconds.\n", mines.MineHarvestTick);
+        stringBuilder.AppendFormat("Nuggets Chance: {0:0.00}%.\n", mines.NuggetsChance);
+        
+        var shield = GameLogic.Instance.Shield;
+        stringBuilder.AppendFormat("\n");
+        stringBuilder.AppendFormat("Shield:\n");
+        stringBuilder.AppendFormat("Shield Integrity: {0:0.00}%.\n", (shield.NormalizedIntegrity() * 100.0f));
+        stringBuilder.AppendFormat("Shield Defense: {0} P.\n", shield.ShieldStrength);
 
         _informationText.text = stringBuilder.ToString();
     }

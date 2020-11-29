@@ -13,6 +13,11 @@ public class ShieldControl : MonoBehaviour
     
     private readonly string shieldLifeMaterialUniform = "ShieldPower";
 
+    public float ShieldIntegrity => shieldIntegrity;
+
+    public float ShieldStrength => shieldStrength;
+
+
     private void Awake()
     {
         var myRenderer = GetComponent<Renderer>();
@@ -26,11 +31,11 @@ public class ShieldControl : MonoBehaviour
 
     public void TakeDamage(float rawDamage)
     {
-        var afterDamage = shieldIntegrity - Math.Max(rawDamage - shieldStrength, 0.0f);
+        var afterDamage = ShieldIntegrity - Math.Max(rawDamage - ShieldStrength, 0.0f);
         shieldIntegrity = Mathf.Clamp(afterDamage, 0.0f, 10.0f);
         _shieldMaterial.SetFloat(shieldLifeMaterialUniform, NormalizedIntegrity());
 
-        if (Math.Abs(shieldIntegrity) < 0.0001f)
+        if (Math.Abs(ShieldIntegrity) < 0.0001f)
         {
             ShieldIsOff();
         }
@@ -61,6 +66,6 @@ public class ShieldControl : MonoBehaviour
 
     public float NormalizedIntegrity()
     {
-        return shieldIntegrity / 10.0f;
+        return ShieldIntegrity / 10.0f;
     }
 }
