@@ -58,3 +58,12 @@ MonoBehaviour:
     complexQuest: 0
     nextQuestToUnlock: 0
     asteroidType: 2
+  - questNumber: 7
+    name: BURN. THE. SKIES.
+    description: Earn your place among the best! Destroy 300 asteroids.
+    mineralReward: 200
+    asteroidReward: 200
+    asteroidsToDestroy: 300
+    complexQuest: 0
+    nextQuestToUnlock: 0
+    asteroidType: 2

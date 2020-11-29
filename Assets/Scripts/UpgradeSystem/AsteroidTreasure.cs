@@ -72,4 +72,9 @@ public class AsteroidTreasure : MonoBehaviour
         
         return treasurePhrase.ToString();
     }
+
+    public void IncrementTreasureCapacity(int newCapacity)
+    {
+        uncollectedTreasuresCapacity = newCapacity;
+    }
 }

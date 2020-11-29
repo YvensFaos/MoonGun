@@ -83,6 +83,17 @@ public class MineHarvest : Upgradable
             case "Atmospheric Protective Fog":
                 GameLogic.Instance.Shield.IncrementShieldStrength(1.0f);
                 break;
+            
+            //Tier 4
+            case "Unstoppable Miner":
+                mineHarvestTick = 1.0f;
+                break;
+            case "Unbreakable Miner":
+                mineHarvestPerTick = 5;
+                break;
+            case "Greater Treasure Area":
+                GameLogic.Instance.TreasureControl.IncrementTreasureCapacity(3);
+                break;
         }
     }
 

@@ -51,6 +51,17 @@ public class Hangar : Upgradable
              case "Triple Cannon":
                  turret.UnlockTripleCannon();
                  break;
+             
+             //Tier 4
+             case "Wider Arc":
+                 turret.IncrementRotationRange(10.0f);
+                 break;
+             case "Prismatic Laser":
+                 turret.UpgradeLaserDuration(2.0f);
+                 break;
+             case "Faster Laser Recharge":
+                 turret.UpgradeLaserCooldown(1.2f);
+                 break;
         }
     }
 }

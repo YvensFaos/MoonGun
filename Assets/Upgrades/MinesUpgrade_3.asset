@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f13571ee45d4dd1aac3fdb523bc9008, type: 3}
+  m_Name: MinesUpgrade_3
+  m_EditorClassIdentifier: 
+  UpgradeNecessaryToUnlock: Drain the Core
+  Upgrades:
+  - name: Unstoppable Miner
+    description: Mine every 1.0 seconds.
+    mineralCost: 0
+    asteroidCost: 500
+  - name: nbreakable Miner
+    description: Mine 5 minerals per tick.
+    mineralCost: 0
+    asteroidCost: 500
+  - name: Greater Treasure Area
+    description: Increases the area of collected asteroid treasures to 3.
+    mineralCost: 100
+    asteroidCost: 200

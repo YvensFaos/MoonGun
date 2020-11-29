@@ -35,6 +35,14 @@ public class Labs : Upgradable
         {
             CloseLabCanvas();
             GameLogic.Instance.Cutscenes.TriggerBreakTheSurfaceCutscene();
+        } else if (info.name.Equals("Drain the Core"))
+        {
+            CloseLabCanvas();
+            GameLogic.Instance.Cutscenes.TriggerDrainTheCoreCutscene();
+        } else if (info.name.Equals("So Long, and Thanks for All The Phlebotium"))
+        {
+            CloseLabCanvas();
+            GameLogic.Instance.Cutscenes.TriggerSoLong();
         }
     }
 
