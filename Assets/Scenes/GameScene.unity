@@ -3386,7 +3386,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.013125138, y: 0.17500001}
   m_AnchorMax: {x: 0.97800004, y: 0.90000004}
-  m_AnchoredPosition: {x: 2, y: -2.9999962}
+  m_AnchoredPosition: {x: 2, y: -3}
   m_SizeDelta: {x: 16, y: 22}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &250195974
@@ -3994,7 +3994,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5736664}
   m_AnchorMax: {x: 1, y: 0.73833364}
-  m_AnchoredPosition: {x: 0, y: -0.3999939}
+  m_AnchoredPosition: {x: 0, y: -0.4000244}
   m_SizeDelta: {x: 0, y: -1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &336206857
@@ -14450,6 +14450,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2072593890}
+        m_TargetAssemblyTypeName: ChangeSongTo, Assembly-CSharp
+        m_MethodName: ChangeToCombatSong
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1176505243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14738,6 +14750,18 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 8300000, guid: a0ea114c07e6446b89d33b88775939a1, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 2072593890}
+        m_TargetAssemblyTypeName: ChangeSongTo, Assembly-CSharp
+        m_MethodName: ChangeToBaseSong
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -28103,6 +28127,7 @@ GameObject:
   - component: {fileID: 2072593887}
   - component: {fileID: 2072593888}
   - component: {fileID: 2072593889}
+  - component: {fileID: 2072593890}
   m_Layer: 0
   m_Name: SoundtrackPlayer
   m_TagString: Untagged
@@ -28236,6 +28261,20 @@ MonoBehaviour:
   mixer: {fileID: 24100000, guid: 91bccf798d97e426c9c973b0005976be, type: 2}
   exposedVariable: MusicVolume
   slider: {fileID: 705712311}
+--- !u!114 &2072593890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2072593886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa741343dd7fb40c8be98a0c1573df18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseSong: {fileID: 8300000, guid: 8d91b1dd836744ecda79e5ddce7cb344, type: 3}
+  combatSong: {fileID: 8300000, guid: 9cfdfdc3c23914100905769666328325, type: 3}
 --- !u!1 &2077000319
 GameObject:
   m_ObjectHideFlags: 0
@@ -29105,7 +29144,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.424166}
   m_AnchorMax: {x: 1, y: 0.5514996}
-  m_AnchoredPosition: {x: -25.400024, y: 13}
+  m_AnchoredPosition: {x: -25.399902, y: 13}
   m_SizeDelta: {x: 0, y: 37}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2127084202
